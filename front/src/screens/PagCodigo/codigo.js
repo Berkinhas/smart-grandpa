@@ -1,6 +1,6 @@
 // import React, { useRef, useState } from 'react';
 // import styleCode from './styleCode';
-// import { View, Text , TextInput} from 'react-native'
+ import { View, Text , TextInput} from 'react-native'
 // import { FiraSans_500Medium, useFonts } from '@expo-google-fonts/fira-sans';
 
  export function CodeScreen({ navigation }){

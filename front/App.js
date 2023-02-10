@@ -5,7 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { LoginScreen } from './src/screens/SignIn/login'
 import { RegisterScreen } from './src/screens/Register/registro'
 import { OpScreen } from './src/screens/EntradaOp/op'
-import { SenhaScreen } from './src/screens/Senha/recuperaSenha';
+import { SenhaSreen } from './src/screens/Senha/recuperaSenha';
 import { CodeScreen} from './src/screens/PagCodigo/codigo';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -19,8 +19,8 @@ export default function App() {
     <Stack.Navigator>
       
     <Stack.Screen 
-      name="CodeScreen" 
-      component={CodeScreen}
+      name="LoginScreen" 
+      component={LoginScreen}
       options={{
         headerShown: false,
       }}  
@@ -40,15 +40,15 @@ export default function App() {
       }}
     />
     <Stack.Screen 
-      name="SenhaScreen" 
-      component={SenhaScreen}
+      name="SenhaSreen" 
+      component={SenhaSreen}
       options={{
         headerShown: false,
       }}  
     />
     <Stack.Screen 
-      name="LoginScreen" 
-      component={LoginScreen}
+      name="CodeScreen" 
+      component={CodeScreen}
       options={{
         headerShown: false,
       }}  

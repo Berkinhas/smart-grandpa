@@ -45,7 +45,7 @@ export function LoginScreen({ navigation }){
           secureTextEntry={hidePass}
         /> 
 
-        <TouchableOpacity style={styleLogin.icon}  onPress={() => setHidePass(!hidePass) } >
+        <TouchableOpacity testID="btn-eye" style={styleLogin.icon}  onPress={() => setHidePass(!hidePass) } >
           {hidePass ?
           <Ionicons name="eye-off" color="#9C80BE" size={25}/>
           :
@@ -54,11 +54,11 @@ export function LoginScreen({ navigation }){
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity style={styleLogin.btnEnter}>
+        <TouchableOpacity testID='btn-enter' style={styleLogin.btnEnter}>
           <Text style={{color:"#DAD0FB", fontSize:16, fontFamily:'FiraSans_500Medium',}}>Enter</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styleLogin.textoSenha} onPress={() => navigation.navigate('SenhaSreen')}>
+          <TouchableOpacity testID='btn-remember' style={styleLogin.textoSenha} onPress={() => navigation.navigate('SenhaSreen')}>
             <Text style={{color:"#3D3C41", fontSize:16, fontFamily:'FiraSans_500Medium',}}>Esqueci minha senha</Text>
           </TouchableOpacity>
 
@@ -68,12 +68,12 @@ export function LoginScreen({ navigation }){
 
           <View style={styleLogin.teste}>
             <View style={styleLogin.loginFG}> 
-              <TouchableOpacity>
+              <TouchableOpacity testID='btn-enter-facebook'>
               <View style={styleLogin.loginF}>
                 <Image source={loginFacebook}></Image> 
               </View>
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity testID='btn-enter-google'>
                 <View style={styleLogin.loginG}>
                   <Image source={loginGoogle}></Image> 
                 </View>              
@@ -81,7 +81,7 @@ export function LoginScreen({ navigation }){
             </View> 
           </View>
 
-          <TouchableOpacity style={styleLogin.textoCadastro} onPress={() => navigation.navigate('RegisterScreen')}>
+          <TouchableOpacity testID='btn-no-user' style={styleLogin.textoCadastro} onPress={() => navigation.navigate('RegisterScreen')}>
             <Text style={{color:"#3D3C41", fontSize:16, fontFamily:'FiraSans_500Medium',}}>Ainda não é usuário? Cadastrar</Text>
           </TouchableOpacity>
 

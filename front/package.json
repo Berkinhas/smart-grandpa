@@ -7,7 +7,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "test": "jest"
+    "test": "jest login.test.js"
   },
   "dependencies": {
     "@expo-google-fonts/fira-sans": "^0.2.2",
@@ -26,5 +26,15 @@
   "devDependencies": {
     "@babel/core": "^7.12.9"
   },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
   "private": true
+
 }

@@ -16,7 +16,26 @@ O projeto Smart Grandpa se trata de um sistema mobile desenvolvido para melhorar
 
 #
 
-## Quais telas criadas até agora? ?
+## Quais tecnologias usadas?
+
+<br/>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"/>
+  <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white"/>
+  <img src="https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
+  <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"/>
+  
+</p>
+
+
+
+#
+
+
+
+## Quais telas criadas até agora?
 
 <br/>
 

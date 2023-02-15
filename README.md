@@ -55,3 +55,10 @@ O projeto Smart Grandpa se trata de um sistema mobile desenvolvido para melhorar
 - [ ] Perfil de usuário
 - [ ] Localização
 
+#
+
+## Contribuidores
+
+
+| [<img src="https://avatars.githubusercontent.com/u/88352519?v=4" width=115><br><sub>Matheus Jardim</sub>](https://github.com/Berkinhas) |  [<img src="https://avatars.githubusercontent.com/u/123080479?v=4" width=115><br><sub>Kawany Soares</sub>](https://github.com/KawanySoares) |  [<img src="https://avatars.githubusercontent.com/u/72463957?v=4" width=115><br><sub>Rhuan Rodrigues</sub>](https://github.com/Rhuan-Rodrigues1) |
+| :---: | :---: | :---: |

@@ -4,7 +4,7 @@ import { View, Text, TextInput, TouchableOpacity, Image} from 'react-native'
 import { Ionicons} from '@expo/vector-icons';
 import { FiraSans_500Medium, useFonts } from '@expo-google-fonts/fira-sans';
 import cadeado from '/home/matheus/Área de Trabalho/mobile/front/assets/cadeado.png'
-
+import * as Animatable from 'react-native-animatable';
 
 export function SenhaSreen({ navigation }){
 
@@ -25,13 +25,13 @@ export function SenhaSreen({ navigation }){
       <View style={styleSenha.container}>
 
       
-        <View style={styleSenha.cadeado}>
+        <Animatable.View animation="flipInY" style={styleSenha.cadeado}>
           <Image style={{width:70, height: 70}} source={cadeado}></Image> 
-        </View> 
+        </Animatable.View> 
 
-      <Text style={styleSenha.title}>Redefinir sua senha</Text>
+      <Animatable.Text delay={300} animation="flipInX" style={styleSenha.title}>Redefinir sua senha</Animatable.Text>
 
-      <View style={styleSenha.containerSenha}>
+      <Animatable.View delay={500} animation="fadeInUp" style={styleSenha.containerSenha}>
         <View style={styleSenha.design}>
           <TextInput
           style={styleSenha.input}
@@ -50,7 +50,7 @@ export function SenhaSreen({ navigation }){
 
 
         </View>
-      </View>
+      </Animatable.View>
        
           
       

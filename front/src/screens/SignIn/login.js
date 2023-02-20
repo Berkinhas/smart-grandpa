@@ -5,6 +5,7 @@ import { Ionicons} from '@expo/vector-icons';
 import { FiraSans_500Medium, useFonts } from '@expo-google-fonts/fira-sans';
 import loginFacebook from '/home/matheus/Área de Trabalho/mobile/front/assets/facebook.png';
 import loginGoogle from '/home/matheus/Área de Trabalho/mobile/front/assets/google.png';
+import * as Animatable from 'react-native-animatable';
 
 
 
@@ -24,7 +25,7 @@ export function LoginScreen({ navigation }){
     
   
   return(
-      <View style={styleLogin.container}>
+      <Animatable.View style={styleLogin.container}>
 
         <Text style={styleLogin.title}>Login</Text>
       
@@ -85,6 +86,6 @@ export function LoginScreen({ navigation }){
             <Text style={{color:"#3D3C41", fontSize:16, fontFamily:'FiraSans_500Medium',}}>Ainda não é usuário? Cadastrar</Text>
           </TouchableOpacity>
 
-      </View>
+      </Animatable.View>
   );
 }

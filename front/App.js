@@ -1,6 +1,4 @@
-// import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import 'react-native-gesture-handler';
-//  import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { LoginScreen } from './src/screens/SignIn/login'
 import { RegisterScreen } from './src/screens/Register/registro'
@@ -58,4 +56,4 @@ export default function App() {
     
   );
   }
-
+  

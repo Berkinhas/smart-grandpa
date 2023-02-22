@@ -5,7 +5,7 @@ import { Ionicons} from '@expo/vector-icons';
 import { FiraSans_500Medium, useFonts } from '@expo-google-fonts/fira-sans';
 import loginFacebook from '/home/matheus/Área de Trabalho/mobile/front/assets/facebook.png';
 import loginGoogle from '/home/matheus/Área de Trabalho/mobile/front/assets/google.png';
-
+import axios from 'axios';
 
 export function RegisterScreen({ navigation }){
 

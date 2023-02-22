@@ -55,8 +55,8 @@ export function LoginScreen({ navigation }){
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity testID='btn-enter' style={styleLogin.btnEnter}>
-          <Text style={{color:"#DAD0FB", fontSize:16, fontFamily:'FiraSans_500Medium',}}>Enter</Text>
+        <TouchableOpacity testID='btn-enter' style={styleLogin.btnEnter } onPress={() => navigation.navigate('HomeScreen')}>
+          <Text style={{color:"#DAD0FB", fontSize:16, fontFamily:'FiraSans_500Medium',}}>Entrar</Text>
           </TouchableOpacity>
 
           <TouchableOpacity testID='btn-remember' style={styleLogin.textoSenha} onPress={() => navigation.navigate('SenhaSreen')}>

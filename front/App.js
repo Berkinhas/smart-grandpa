@@ -6,10 +6,11 @@ import { StyleSheet, Text, View, Image, TouchableOpacity  } from 'react-native';
 
 //TELAS DE NAVEGAÇÃO
 import { LoginScreen } from './src/screens/SignIn/login';
-import { RegisterScreen } from './src/screens/Register/registro'
+import { RegisterScreen } from './src/screens/RegisterCommom/registro'
 import { OpScreen } from './src/screens/EntradaOp/op';
 import { SenhaSreen } from './src/screens/Senha/recuperaSenha';
 import { CodeScreen} from './src/screens/PagCodigo/codigo';
+import { RegisterCarevigerScreen } from './src/screens/RegisterCareviger/RegisterCareviger.js'
 
 //TELAS TAB BOTTOM NAVIGATION
 import { HomeScreen } from "./src/screens/Home/home"
@@ -207,10 +208,13 @@ export default function App() {
       name="LoginScreen" component={LoginScreen}
     />
     <Stack.Screen 
-      name="RegisterScreen" component={RegisterScreen}
+      name="OpScreen" component={OpScreen}
     />
     <Stack.Screen 
-      name="OpScreen" component={OpScreen} 
+      name="RegisterCarevigerScreen" component={RegisterCarevigerScreen}
+    />
+    <Stack.Screen 
+      name="RegisterScreen" component={RegisterScreen} 
     />
     <Stack.Screen 
       name="SenhaSreen" component={SenhaSreen}  

@@ -82,7 +82,7 @@ export function LoginScreen({ navigation }){
             </View> 
           </View>
 
-          <TouchableOpacity testID='btn-no-user' style={styleLogin.textoCadastro} onPress={() => navigation.navigate('RegisterScreen')}>
+          <TouchableOpacity testID='btn-no-user' style={styleLogin.textoCadastro} onPress={() => navigation.navigate('OpScreen')}>
             <Text style={{color:"#3D3C41", fontSize:16, fontFamily:'FiraSans_500Medium',}}>Ainda não é usuário? Cadastrar</Text>
           </TouchableOpacity>
 

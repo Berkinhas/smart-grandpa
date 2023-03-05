@@ -23,10 +23,10 @@ export  function OpScreen ({ navigation }) {
     <View style={styleOp.container}>
 
       <Text style={styleOp.title}>Quem você é?</Text>
-       <TouchableOpacity style={styleOp.btnIdoso} onPress={() => navigation.navigate('LoginScreen')}>
+       <TouchableOpacity style={styleOp.btnIdoso} onPress={() => navigation.navigate('RegisterScreen')}>
         <Text style={{color:"#DAD0FB", fontSize:16, fontFamily:'FiraSans_500Medium',}}>Sou idoso</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styleOp.btnIdoso} onPress={() => navigation.navigate('LoginScreen')}>
+        <TouchableOpacity style={styleOp.btnIdoso} onPress={() => navigation.navigate('RegisterCarevigerScreen')}>
         <Text style={{color:"#DAD0FB", fontSize:16, fontFamily:'FiraSans_500Medium',}}>Sou cuidador</Text>
         </TouchableOpacity>  
     </View>

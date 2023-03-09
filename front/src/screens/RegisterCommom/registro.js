@@ -7,25 +7,30 @@ import loginFacebook from '/home/matheus/Área de Trabalho/mobile/front/assets/f
 import loginGoogle from '/home/matheus/Área de Trabalho/mobile/front/assets/google.png';
 import axios from 'axios';
 
-async function cadastrarUsuario(){
+async function cadastrarUsuario(nome, sobrenome, email, senha) {
   try {
-    const response = await axios.post('localhost:8080/autenticacaoComum/registrar', {
+    const response = await api.post('/autenticacaoComum/registrar', {
       nome: nome,
       sobrenome: sobrenome,
       email: email,
-      senha: password
-  });
-  console.log(response.data);
+      senha: senha
+    }, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    console.log(response.data);
   } catch (error) {
-    console.error(error);
+    console.error(error.response.data);
   }
 }
 
 export function RegisterScreen({ navigation }){
-
-  const [nome, onChangeText] = React.useState('');
+  const [nome, setNome] = React.useState('');
+  const [sobrenome, setSobrenome] = React.useState('');
   const [email, onChangeEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [senha, setPassword] = React.useState('');
   const [hidePass, setHidePass] = React.useState(true);
   const [fonteLoaded] = useFonts({
     FiraSans_500Medium,
@@ -35,6 +40,14 @@ export function RegisterScreen({ navigation }){
   if(!fonteLoaded){
     return null;
   }
+
+  const handleNomeChange = (nome) => {
+    setNome(nome);
+  };
+
+  const handleSobrenomeChange = (sobrenome) => {
+    setSobrenome(sobrenome);
+  };
     
   
   return(
@@ -44,10 +57,19 @@ export function RegisterScreen({ navigation }){
       
         <TextInput
           style={styleRegister.input}
-          onChangeText={onChangeText}
+          onChangeText={handleNomeChange}
           value={nome}
-          placeholder="Nome completo"
+          placeholder="Nome"
         />
+        
+        <View style={styleRegister.inputEmail}>
+          <TextInput
+          style={styleRegister.input}
+          onChangeText={handleSobrenomeChange}
+          value={sobrenome}
+          placeholder="Sobrenome"
+        />
+        </View>
     
         <View style={styleRegister.inputEmail}>
           <TextInput
@@ -62,7 +84,7 @@ export function RegisterScreen({ navigation }){
         <TextInput
           style={styleRegister.input}
           onChangeText={ (texto) => setPassword(texto)}
-          value={password}
+          value={senha}
           placeholder="Senha"
           secureTextEntry={hidePass}
         /> 
@@ -77,7 +99,18 @@ export function RegisterScreen({ navigation }){
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity style={styleRegister.btnEnter} onPress={() => navigation.navigate('LoginScreen')}>
+        <TouchableOpacity style={styleRegister.btnEnter} onPress={() =>        {          
+          function register() {
+            cadastrarUsuario(nome,sobrenome,email,senha)
+            
+          }
+
+          function navegacao(){
+            navigation.navigate('LoginScreen')
+          }
+          register()
+          navegacao()
+        }}> 
           <Text style={{color:"#DAD0FB", fontSize:16, fontFamily:'FiraSans_500Medium',}}>Cadastrar</Text>
           </TouchableOpacity>
 

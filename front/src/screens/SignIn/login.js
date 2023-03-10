@@ -6,13 +6,31 @@ import { FiraSans_500Medium, useFonts } from '@expo-google-fonts/fira-sans';
 import loginFacebook from '/home/matheus/Área de Trabalho/mobile/front/assets/facebook.png';
 import loginGoogle from '/home/matheus/Área de Trabalho/mobile/front/assets/google.png';
 import * as Animatable from 'react-native-animatable';
+import api from '/home/matheus/Área de Trabalho/mobile/front/src/api/index.js'
 
+
+async function loginUser(email, senha) {
+   try {
+     const response = await api.post('/login', {
+       email: email,
+       senha: senha
+     }, {
+       headers: {
+         'Content-Type': 'application/json'
+       }
+     });
+
+     return response.data; // retorna os dados do usuário no caso de sucesso
+   } catch (error) {
+     console.error(error.response.data);
+   }
+ }
 
 
 export function LoginScreen({ navigation }){
 
   const [email, onChangeEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [senha, setPassword] = React.useState('');
   const [hidePass, setHidePass] = React.useState(true);
   const [fonteLoaded] = useFonts({
     FiraSans_500Medium,
@@ -41,7 +59,7 @@ export function LoginScreen({ navigation }){
         <TextInput
           style={styleLogin.input}
           onChangeText={ (texto) => setPassword(texto)}
-          value={password}
+          value={senha}
           placeholder="Senha"
           secureTextEntry={hidePass}
         /> 
@@ -55,7 +73,17 @@ export function LoginScreen({ navigation }){
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity testID='btn-enter' style={styleLogin.btnEnter } onPress={() => navigation.navigate('HomeScreen')}>
+        <TouchableOpacity
+          testID='btn-enter'
+          style={styleLogin.btnEnter}
+          onPress={async () => {
+            const user = await loginUser(email, senha);
+            if (!user) {
+              Alert.alert('Usuário não encontrado');
+            } else {
+              navigation.navigate('HomeScreen')
+            }
+          }}>
           <Text style={{color:"#DAD0FB", fontSize:16, fontFamily:'FiraSans_500Medium',}}>Entrar</Text>
           </TouchableOpacity>
 

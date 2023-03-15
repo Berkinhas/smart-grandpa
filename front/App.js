@@ -17,7 +17,7 @@ import { HomeScreen } from "./src/screens/Home/home"
 import { SearchScreen } from "./src/screens/Search/search"
 import { PubScreen } from "./src/screens/publication/pub"
 import { ChatScreen } from "./src/screens/chat/chat"
-import { NotficationScreen } from "./src/screens/notificacao/notificacao"
+import { NotificationScreen } from "./src/screens/notificacao/notificacao"
 import { ProfileScreen } from "./src/screens/Profile/profile"
 
 
@@ -42,7 +42,7 @@ const CustomTabBarButton = ({children, onPress}) => (
       width: 70,
       height: 70,
       borderRadius: 35,
-      backgroundColor: '#9C80BE'
+      backgroundColor: '#663399'
     }}>
       {children}
     </View>
@@ -79,11 +79,11 @@ function Tabs(){
               style={{
                 width: 25,
                 height: 25,
-                tintColor: focused ? '#9C80BE' : '#748c94'
+                tintColor: focused ? '#663399': '#748c94'
               }}
             />
             <Text
-            style={{color: focused ? '#9C80BE' : '#748c94', fontSize:12 }}
+            style={{color: focused ? '#663399' : '#748c94', fontSize:12 }}
             
             >
             Home  
@@ -101,11 +101,11 @@ function Tabs(){
                 style={{
                   width: 25,
                   height: 25,
-                  tintColor: focused ? '#9C80BE' : '#748c94'
+                  tintColor: focused ? '#663399' : '#748c94'
                 }}
               />
               <Text
-              style={{color: focused ? '#9C80BE' : '#748c94', fontSize:12 }}
+              style={{color: focused ? '#663399' : '#748c94', fontSize:12 }}
               
               >
                 Procurar
@@ -137,7 +137,7 @@ function Tabs(){
         }}
         
       />
-      <Tab.Screen name='Notification' component={ChatScreen}
+      <Tab.Screen name='Notification' component={NotificationScreen}
         options={{
           tabBarIcon: ({focused}) => (
             <View style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
@@ -147,11 +147,11 @@ function Tabs(){
                 style={{
                   width: 25,
                   height: 25,
-                  tintColor: focused ? '#9C80BE' : '#748c94'
+                  tintColor: focused ? '#663399' : '#748c94'
                 }}
               />
               <Text
-              style={{color: focused ? '#9C80BE' : '#748c94', fontSize:12 }}
+              style={{color: focused ? '#663399' : '#748c94', fontSize:12 }}
               
               >
               Notificações  
@@ -170,11 +170,11 @@ function Tabs(){
                 style={{
                   width: 25,
                   height: 25,
-                  tintColor: focused ? '#9C80BE' : '#748c94'
+                  tintColor: focused ? '#663399' : '#748c94'
                 }}
               />
               <Text
-              style={{color: focused ? '#9C80BE' : '#748c94', fontSize:12 }}
+              style={{color: focused ? '#663399' : '#748c94', fontSize:12 }}
               
               >
               Perfil  
@@ -205,7 +205,7 @@ export default function App() {
     <NavigationContainer>
     <Stack.Navigator screenOptions={{headerShown: false}}>      
     <Stack.Screen 
-      name="LoginScreen" component={LoginScreen}
+      name="HomeScreen" component={Tabs}
     />
     <Stack.Screen 
       name="OpScreen" component={OpScreen}
@@ -223,7 +223,7 @@ export default function App() {
       name="CodeScreen" component={CodeScreen}  
     />
     <Stack.Screen 
-      name="HomeScreen" component={Tabs}  
+      name="LoginScreen" component={LoginScreen}  
     />
     </Stack.Navigator>
     </NavigationContainer> 

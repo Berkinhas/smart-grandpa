@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import styleCode from './styleCode';
-import { View, Text , TextInput, StyleSheet} from 'react-native'
+import { View, Text , TextInput, StyleSheet,TouchableOpacity} from 'react-native'
 import { FiraSans_500Medium, useFonts } from '@expo-google-fonts/fira-sans';
 
 export function CodeScreen({ navigation }){
@@ -32,63 +32,72 @@ export function CodeScreen({ navigation }){
 
 return(
   <View style={styleCode.container}>
-     <Text style={styleCode.text}>Login</Text>
+     <Text style={styleCode.text}>Digite o código</Text>
 
+     <View style={styleCode.codeDesign}>
+      <View style={styleCode.opContainer}>
+      <View  style={styleCode.boxContainer}>
+       <View style={styleCode.containerCode}>
+          <View style={styleCode.otpBox}>
+          <TextInput
+            style={styleCode.otpText}
+            keyboardType='default'
+            maxLength={1}
+            ref={firstInput}
+            onChangeText={text => {
+              setOtp({...otp, 1: text})
+              text && secondInput.current.focus();
+            }}
+            />
+        </View>
 
-     <View style={styleCode.opContainer}>
-      <View style={styleCode.otpBox}>
-       <TextInput
-        style={styleCode.otpText}
-        keyboardType='default'
-        maxLength={1}
-        ref={firstInput}
-        onChangeText={text => {
-          setOtp({...otp, 1: text})
-          text && secondInput.current.focus();
-         }}
-        />
-     </View>
-
-     <View style={styleCode.otpBox}>
-      <TextInput
-        style={styleCode.otpText}
-        keyboardType='default'
-        maxLength={1}
-        ref={secondInput}
-        onChangeText={text => {
-          setOtp({...otp, 2: text})
-          text ? thirdInput.current.focus() : firstInput.current.focus()
-        }}
-      />
+        <View style={styleCode.otpBox}>
+          <TextInput
+            style={styleCode.otpText}
+            keyboardType='default'
+            maxLength={1}
+            ref={secondInput}
+            onChangeText={text => {
+              setOtp({...otp, 2: text})
+              text ? thirdInput.current.focus() : firstInput.current.focus()
+            }}
+          />
+          </View>
+        <View style={styleCode.otpBox}>
+          <TextInput
+            style={styleCode.otpText}
+            keyboardType='default'
+            maxLength={1}
+            ref={thirdInput}
+            onChangeText={text => {
+              setOtp({...otp, 3: text})
+              text ? fourthInput.current.focus() : secondInput.current.focus()
+            }}
+          />
+        </View>
+        <View style={styleCode.otpBox}>
+          <TextInput
+            style={styleCode.otpText}
+            keyboardType='default'
+            maxLength={1}
+            ref={fourthInput}
+            onChangeText={text => {
+              setOtp({...otp, 4: text})
+              text ? fourthInput.current.focus() : thirdInput.current.focus()
+            }}
+          /> 
+          </View>
+        </View>
+       </View>
       </View>
-     <View style={styleCode.otpBox}>
-      <TextInput
-        style={styleCode.otpText}
-        keyboardType='default'
-        maxLength={1}
-        ref={thirdInput}
-        onChangeText={text => {
-          setOtp({...otp, 3: text})
-          text ? fourthInput.current.focus() : secondInput.current.focus()
-        }}
-      />
+       <Text style={styleCode.textDescription}> Digite o código que foi enviado no seu e-mail.</Text>
+       <TouchableOpacity style={styleCode.btnSenha} onPress={() => navigation.navigate('LoginScreen')}>
+         <Text style={{color:"#DAD0FB", fontSize:16, fontFamily:'FiraSans_500Medium',}}>Enviar código</Text>
+       </TouchableOpacity> 
      </View>
-     <View style={styleCode.otpBox}>
-      <TextInput
-        style={styleCode.otpText}
-        keyboardType='default'
-        maxLength={1}
-        ref={fourthInput}
-        onChangeText={text => {
-          setOtp({...otp, 4: text})
-          text ? fourthInput.current.focus() : thirdInput.current.focus()
-        }}
-      />
-      </View>
 
-     </View>
      
-     </View>
+  </View>
 
 
 

@@ -225,6 +225,9 @@ export default function App() {
     <Stack.Screen 
       name="LoginScreen" component={LoginScreen}  
     />
+    <Stack.Screen 
+      name="ProfileScreen" component={Tabs}  
+    />
     </Stack.Navigator>
     </NavigationContainer> 
   ); 

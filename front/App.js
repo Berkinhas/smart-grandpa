@@ -11,6 +11,7 @@ import { OpScreen } from './src/screens/EntradaOp/op';
 import { SenhaSreen } from './src/screens/Senha/recuperaSenha';
 import { CodeScreen} from './src/screens/PagCodigo/codigo';
 import { RegisterCarevigerScreen } from './src/screens/RegisterCareviger/RegisterCareviger.js'
+import { EditProfileScreen } from './src/screens/editProfile/editProfile.js'
 
 //TELAS TAB BOTTOM NAVIGATION
 import { HomeScreen } from "./src/screens/Home/home"
@@ -227,6 +228,9 @@ export default function App() {
     />
     <Stack.Screen 
       name="ProfileScreen" component={Tabs}  
+    />
+    <Stack.Screen 
+      name="EditProfileScreen" component={EditProfileScreen}
     />
     </Stack.Navigator>
     </NavigationContainer> 

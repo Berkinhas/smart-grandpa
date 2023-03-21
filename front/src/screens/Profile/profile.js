@@ -3,13 +3,15 @@ import { View, Text, ScrollView, StyleSheet, Image, TouchableOpacity } from 'rea
 import styleProfile from './styleProfile.js';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-export function ProfileScreen() {
+export function ProfileScreen({ navigation }) {
     return (
     <ScrollView>
      <View style={styleProfile.container}>
       <View style={styleProfile.header}>
-      	<TouchableOpacity style={styleProfile.editButton}>
-	  
+      	<TouchableOpacity style={styleProfile.editButton} onPress={() =>        {          
+            navigation.navigate('EditProfileScreen')
+          
+        }}>
 	  <MaterialIcons name="edit" size={24} color="#FFF" style={styleProfile.editIcon} />
 	</TouchableOpacity>
         <Image

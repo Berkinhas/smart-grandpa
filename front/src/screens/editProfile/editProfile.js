@@ -7,7 +7,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import * as ImagePicker from 'expo-image-picker';
 import api from '/home/matheus/Área de Trabalho/mobile/front/src/api/index.js'
 import { IconButton } from 'react-native-paper';
-import DocumentPicker from 'react-native-document-picker';
+
 
 
 async function userFoto(image) {

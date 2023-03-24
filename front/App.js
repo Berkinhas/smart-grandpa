@@ -233,6 +233,9 @@ export default function App() {
     <Stack.Screen 
       name="EditProfileScreen" component={EditProfileScreen}
     />
+    <Stack.Screen 
+      name="NotificationScreen" component={NotificationScreen}
+    />
     </Stack.Navigator>
     </NavigationContainer> 
   ); 

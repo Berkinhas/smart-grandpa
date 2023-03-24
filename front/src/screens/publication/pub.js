@@ -8,6 +8,7 @@ export function PubScreen() {
   const [descricao, setDescricao] = useState('');
   const [local, setLocal] = useState('');
   const [horario, setHorario] = useState('');
+  const [salario, setSalario] = useState('');
   
   const handleTituloChange = (text) => {
     setTitulo(text);
@@ -22,7 +23,11 @@ export function PubScreen() {
   }
   
   const handleHorarioChange = (text) => {
-    setHOrario(text);
+    setHorario(text);
+  }
+  
+  const handleSalarioChange = (text) => {
+    setSalario(text);
   }
 
   const handleSubmit = () => {
@@ -63,6 +68,13 @@ export function PubScreen() {
       value={descricao}
       onChangeText={setDescricao}
       multiline
+    />
+    <TextInput
+      style={stylePub.input}
+      placeholder="Salário"
+      placeholderTextColor="#9B9B9B"
+      value={salario}
+      onChangeText={setSalario}
     />
     <TouchableOpacity style={stylePub.button} onPress={handleSubmit}>
       <Text style={stylePub.buttonText}>Enviar</Text>

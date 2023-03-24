@@ -55,6 +55,89 @@ const styleHome = StyleSheet.create({
     width: '80%',
     color: '#FFF'
   },
+  modalContainer: {
+    flex: 1,
+    backgroundColor: 'white',
+    padding: 16,
+  },
+  closeButton: {
+    position: 'absolute',
+    top: 16,
+    right: 16,
+  },
+  optionsContainer: {
+    marginTop: 32,
+  },
+  option: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  optionText: {
+    marginLeft: 16,
+    fontSize: 18,
+  },
+  modalContainer: {
+  backgroundColor: 'white',
+  marginHorizontal: 20,
+  marginTop: 'auto',
+  marginBottom: 'auto',
+  borderRadius: 20,
+  padding: 20,
+  height: '80%',
+},
+modalContent: {
+  flex: 1,
+  alignItems: 'center',
+  justifyContent: 'center',
+},
+modalTitle: {
+  fontFamily: 'FiraSans_500Medium',
+  fontSize: 24,
+  marginBottom: 8,
+},
+modalDescription: {
+  fontFamily: 'FiraSans_500Medium',
+  fontSize: 16,
+  marginBottom: 16,
+},
+backButton: {
+  marginTop: 16,
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+},
+backButtonText: {
+  fontFamily: 'FiraSans_500Medium',
+  fontSize: 16,
+  marginLeft: 8,
+},
+settingsButton: {
+    position: 'absolute',
+    top: 70,
+    right: 20,
+    zIndex: 999,
+    margin: 20,
+    backgroundColor: 'transparent',
+    borderRadius: 50,
+    padding: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+ buttonNotification: {
+    position: 'absolute',
+    top: 70,
+    right: 55,
+    zIndex: 999,
+    margin: 20,
+    backgroundColor: 'transparent',
+    borderRadius: 50,
+    padding: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+ },
+
+
   
        })
   export default styleHome;

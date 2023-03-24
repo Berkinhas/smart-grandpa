@@ -28,7 +28,7 @@ const notificationsData = [
   },
 ];
 
-export function NotificationScreen() {
+export function NotificationScreen({navigation}) {
 
   const handleNotificationPress = (item) => {
     // Handle notification press
@@ -54,7 +54,8 @@ export function NotificationScreen() {
   return (
     <View style={styleNotificacao.container}>
       <View style={styleNotificacao.header}>
-        <TouchableOpacity style={styleNotificacao.backButton} onPress={() => navigation.goBack()}>
+        <TouchableOpacity style={styleNotificacao.backButton} onPress={() => {          
+            navigation.navigate('HomeScreen')    }}>
           <MaterialIcons name="arrow-back" size={24} color="#FFF" />
         </TouchableOpacity>
         <Text style={styleNotificacao.screenTitle}>Notificações</Text>

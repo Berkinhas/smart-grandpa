@@ -1,0 +1,480 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Api SmartGrandpa",
+        "description": "Api para contribuir com cuidadores de idosos",
+        "termsOfService": "https://localhost:8080/terms",
+        "contact": {
+            "instagram": "asasdd"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+        "url": "http://localhost8080",
+        "description": "Rota da aplicação em serviço local"
+        }
+
+    ],
+    "paths": {
+        "/autenticacaoComum/registrar": {
+            "post": {
+                "summary": "Cadastro de Usuario Comum",
+                "description": "Essa rota cadastra um usuario comum no banco de dados usando autenticação jwt: cadastro com nome, sobrenome, email, senha, endereço, telefone, celular, data_nasc e idade",
+                "tags": ["Users"]
+            },
+            "requestBody": {
+                "description": "Dados para cadastro de usuario comum",
+                "content": {
+                    "application/json": {
+                        "schema": {
+
+                        }
+                    }
+                }
+            }
+        },
+        "/autenticacaoCuidador/registrar": {
+            "post": {
+                "summary": "Cadastro de Usuario Cuidador",
+                "description": "Essa rota cadastra um usuario cuidador no banco de dados usando autenticação jwt: cadastro com cpf, nome, sobrenome, email, senha, endereço, telefone, celular, data_nasc e idade",
+                "tags": ["Users"]
+            },
+            "requestBody": {
+                "description": "Dados para cadastro de usuario cuidador",
+                "content": {
+                    "application/json": {
+                        "schema": {
+
+                        }
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "summary": "Login de Usuarios",
+                "description": "Essa rota loga um usuario e retorna suas informações e o token",
+                "tags": ["Users"]
+            },
+            "requestBody": {
+                "description": "Dados para login",
+                "content": {
+                    "application/json": {
+                        "schema": {
+
+                        }
+                    }
+                }
+            }
+        },
+        "/login/": {
+            "get": {
+                "summary": "Usuarios cadastrados no sistema",
+                "description": "Mostra os usuarios cadastrados no sistema",
+                "tags": ["Users"]
+            },
+            "requestBody": {
+                "description": "Dados para cadastro de usuario comum",
+                "content": {
+                    "application/json": {
+                        "schema": {
+
+                        }
+                    }
+                }
+            }
+        },
+        "/recuperar/": {
+            "post": {
+                "summary": "Recuperação de senha",
+                "description": "Essa rota gera um token de recuperação de senha que é enviado no email do usuario",
+                "tags": ["Users"]
+            },
+            "requestBody": {
+                "description": "Dados para recuperação de senha de usuario",
+                "content": {
+                    "application/json": {
+                        "schema": {
+
+                        }
+                    }
+                }
+            }
+        },
+        "/recuperar/mudar_senha": {
+            "post": {
+                "summary": "Alterar senha d Usuario",
+                "description": "Essa rota recebe um email, a nova senha e o token enviado e altera no banco de dados",
+                "tags": ["Users"]
+            },
+            "requestBody": {
+                "description": "Dados para alteração de senha do usuario",
+                "content": {
+                    "application/json": {
+                        "schema": {
+
+                        }
+                    }
+                }
+            }
+        },
+        "/perfil/foto": {
+            "post": {
+                "summary": "Foto de Perfil",
+                "description": "Adiciona foto de perfil do usuario",
+                "tags": ["Users"]
+            },
+            "requestBody": {
+                "description": "Dados para foto de perfil do usuario",
+                "content": {
+                    "application/json": {
+                        "schema": {
+
+                        }
+                    }
+                }
+            }
+        },
+        "/perfil/foto/": {
+            "get": {
+                "summary": "Mostra foto de Perfil",
+                "description": "Mostra foto de perfil do usuario",
+                "tags": ["Users"]
+            },
+            "requestBody": {
+                "description": "Dados para foto de perfil do usuario",
+                "content": {
+                    "application/json": {
+                        "schema": {
+
+                        }
+                    }
+                }
+            }
+        },
+        "/pefil/": {
+            "get": {
+                "summary": "Exibir perfil",
+                "description": "Essa rota exibe seu perfil",
+                "tags": ["Users"]
+            },
+            "requestBody": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+
+                        }
+                    }
+                }
+            }
+        },
+        "/perfil/curriculo": {
+            "post": {
+                "summary": "Curriculo",
+                "description": "Adiciona curriculo ao perfil do usuario",
+                "tags": ["Users"]
+            },
+            "requestBody": {
+                "description": "Dados para curriculo do usuario",
+                "content": {
+                    "application/json": {
+                        "schema": {
+
+                        }
+                    }
+                }
+            }
+        },
+        "/perfil/curriculo/": {
+            "get": {
+                "summary": "Mostar curriculo",
+                "description": "Mostra curriculo do usuario",
+                "tags": ["Users"]
+            },
+            "requestBody": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+
+                        }
+                    }
+                }
+            }
+        },
+        "/post/,meus_posts/": {
+            "get": {
+                "summary": "Mostar meus posts",
+                "description": "Mostra posts do usuario",
+                "tags": ["Posts"]
+            },
+            "requestBody": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+
+                        }
+                    }
+                }
+            }
+        },
+        "/post/": {
+            "get": {
+                "summary": "Mostar posts",
+                "description": "Mostra os posts de todos os usuarios",
+                "tags": ["Posts"]
+            },
+            "requestBody": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+
+                        }
+                    }
+                }
+            }
+        },
+        "/post/:id": {
+            "get": {
+                "summary": "Mostar posts",
+                "description": "Mostra os posts de um usuario especifico",
+                "tags": ["Posts"]
+            },
+            "requestBody": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+
+                        }
+                    }
+                }
+            }
+        },
+        "/post/criar": {
+            "post": {
+                "summary": "Criar posts",
+                "description": "Cria um posts",
+                "tags": ["Posts"]
+            },
+            "requestBody": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+
+                        }
+                    }
+                }
+            }
+        },
+        "/post/excluir/:id": {
+            "delete": {
+                "summary": "Excluir posts",
+                "description": "Exclui um post especifico",
+                "tags": ["Posts"]
+            },
+            "requestBody": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+
+                        }
+                    }
+                }
+            }
+        },
+        "/post/alterar/:id": {
+            "put": {
+                "summary": "Alterar posts",
+                "description": "Altera um post especifico",
+                "tags": ["Posts"]
+            },
+            "requestBody": {
+                "description": "",
+                "content": {
+                    "application/json": {
+                        "schema": {
+
+                        }
+                    }
+                }
+            }
+        }
+    },
+
+    "components": {
+        "schemas": {
+            "UserCommon": {
+                "type": "object",
+                "properties": {
+                    "nome": {
+                        "type": "String",
+                        "description": "Nome do usuario"
+                    },
+                    "sobrenome": {
+                        "type": "String",
+                        "description": "Sobrenome do usuario"
+                    },
+                    "email": {
+                        "type": "String",
+                        "description": "Email do usuario"
+                    },
+                    "senha": {
+                        "type": "String",
+                        "description": "Senha do usuario"
+                    },
+                    "endereço": {
+                        "type": "String",
+                        "description": "Endereço do usuario"
+                    },
+                    "telefone": {
+                        "type": "String",
+                        "description": "Telefone do usuario"
+                    },
+                    "celular": {
+                        "type": "String",
+                        "description": "Celular do usuario"
+                    },
+                    "data_nasc": {
+                        "type": "Date",
+                        "description": "Data de nascimento do usuario"
+                    },
+                    "idade": {
+                        "type": "Number",
+                        "description": "Idade do usuario"
+                    },
+                    "posts": {
+                        "type": "ObjectId",
+                        "description": "Salva as postagens do usuario"
+                    },
+                    "fotos_perfil": {
+                        "type": "ObjectId",
+                        "description": "Salva imagens para foto de perfil"
+                    },
+                    "curriculo": {
+                        "type": "ObjectId",
+                        "description": "Salva arquivos pdf"
+                    }
+                }
+            },
+            "UserCareviger": {
+                "type": "object",
+                "properties": {
+                    "cpf": {
+                        "type": "String",
+                        "description": "CPF do usuario"
+                    },
+                    "nome": {
+                        "type": "String",
+                        "description": "Nome do usuario"
+                    },
+                    "sobrenome": {
+                        "type": "String",
+                        "description": "Sobrenome do usuario"
+                    },
+                    "email": {
+                        "type": "String",
+                        "description": "Email do usuario"
+                    },
+                    "senha": {
+                        "type": "String",
+                        "description": "Senha do usuario"
+                    },
+                    "endereço": {
+                        "type": "String",
+                        "description": "Endereço do usuario"
+                    },
+                    "telefone": {
+                        "type": "String",
+                        "description": "Telefone do usuario"
+                    },
+                    "celular": {
+                        "type": "String",
+                        "description": "Celular do usuario"
+                    },
+                    "data_nasc": {
+                        "type": "Date",
+                        "description": "Data de nascimento do usuario"
+                    },
+                    "idade": {
+                        "type": "Number",
+                        "description": "Idade do usuario"
+                    },
+                    "posts": {
+                        "type": "ObjectId",
+                        "description": "Salva as postagens do usuario"
+                    },
+                    "fotos_perfil": {
+                        "type": "ObjectId",
+                        "description": "Salva imagens para foto de perfil"
+                    },
+                    "curriculo": {
+                        "type": "ObjectId",
+                        "description": "Salva arquivos pdf"
+                    }
+                }
+            },
+            "Postage": {
+                "type": "object",
+                "properties": {
+
+                    "usuario": {
+                        "type": "ObjectId",
+                        "description": "Usuario que fez a postagem"
+                    },
+                    "conteudo": {
+                        "type": "String",
+                        "description": "Conteudo que o usuario postou"
+                    },
+    
+                    "data_criada": {
+                        "type": "Date",
+                        "description": "Data em que o conteudo foi criado"
+                    },
+    
+                    "horario_criado": {
+                        "type": "Date",
+                        "description": "Hora em que o conteudo foi criado"
+                    }
+                }
+            },
+            "Files": {
+                "type": "object",
+                "properties": {
+                    "nome": {
+                        "type": "String",
+                        "description": "Nome do arquivo"
+                    },
+                    "usuario": { 
+                        "type": "ObjectId",
+                        "description": "Usuario que enviou o arquivo" 
+                    },
+                    "size": {
+                        "type": "Number",
+                        "description": "Tamanho do arquivo"
+                    },
+                    "key": {
+                        "type": "Number",
+                        "description": "chave para anexar ao nome do arquivo"
+                    },
+                    "url": {
+                        "type": "String",
+                        "description": "Url do arquivo"
+                    },
+                    "data_criada": {
+                        "type": "Date",
+                        "description": "Data em que o aruivo foi enviado"
+                    }
+                }
+
+                }
+            
+        }
+    }
+}

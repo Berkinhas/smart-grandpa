@@ -5,7 +5,10 @@ import { FiraSans_500Medium, useFonts } from '@expo-google-fonts/fira-sans';
 import styleEditProfile from './editProfileStyle';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import * as ImagePicker from 'expo-image-picker';
-import api from '/Users/usuario/Desktop/smart-grandpa-main/front/src/api/index.js'
+import api from '/home/matheus/Área de Trabalho/mobile/front/src/api/index.js'
+import { IconButton } from 'react-native-paper';
+
+
 
 async function userFoto(image) {
   try {
@@ -23,12 +26,21 @@ async function userFoto(image) {
   }
 }
 
-
 export function EditProfileScreen({ navigation }) {
 
 
     const [image, setImage] = useState(null);
   
+    
+      
+    
+    
+    const pickDocument = async () => {
+      let result = await DocumentPicker.getDocumentAsync({});
+      console.log(result.uri);
+      console.log(result);
+    };
+
     const pickImage = async () => {
       // No permissions request is necessary for launching the image library
       let result = await ImagePicker.launchImageLibraryAsync({
@@ -58,56 +70,28 @@ return (
    <View style={styleEditProfile.container}>
     <View style={styleEditProfile.header}>
     <View>
-      <Button style={styleEditProfile.buttonContainer} title="Pick an image from camera roll" onPress={pickImage} />
-      {image && <Image source={{ uri: image }} style={styleEditProfile.image} />}
+    <View>
+      <IconButton icon={() => <MaterialIcons name="photo-camera" size={24} />} onPress={pickImage} />
+      {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+    </View>
     </View>
       <Text style={styleEditProfile.name}>Dr. João da Silva</Text>
       <Text style={styleEditProfile.title}>Médico Cirurgião</Text>
       <Text style={styleEditProfile.location}>São Paulo, Brasil</Text>
     </View>
-    <View style={styleEditProfile.contact}>
-      <Text style={styleEditProfile.contactTitle}>Contato</Text>
-      <TouchableOpacity>
-        <Text style={styleEditProfile.contactInfo}>joaosilva@gmail.com</Text>
-      </TouchableOpacity>
-      <TouchableOpacity>
-        <Text style={styleEditProfile.contactInfo}>(11) 9999-9999</Text>
-      </TouchableOpacity>
-    </View>
-    <View style={styleEditProfile.bio}>
-      <Text style={styleEditProfile.bioTitle}>Sobre mim</Text>
-      <Text style={styleEditProfile.bioText}>
-        Médico cirurgião formado pela Universidade de São Paulo, com mais de 10 anos de experiência
-        em cirurgias complexas. Especializado em cirurgias minimamente invasivas e técnicas
-        avançadas de reconstrução.
-      </Text>
-    </View>
-    <View style={styleEditProfile.skills}>
-      <Text style={styleEditProfile.skillsTitle}>Habilidades</Text>
-      <View style={styleEditProfile.skillsList}>
-        <TouchableOpacity style={styleEditProfile.skillButton}>
-          <Text style={[styleEditProfile.skillText, styleEditProfile.skillButtonSelected]}>
-            Cirurgia Geral
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styleEditProfile.skillButton}>
-          <Text style={styleEditProfile.skillText}>Cirurgia Vascular</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styleEditProfile.skillButton}>
-          <Text style={styleEditProfile.skillText}>Cirurgia Plástica</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styleEditProfile.skillButton}>
-          <Text style={styleEditProfile.skillText}>Cirurgia Robótica</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styleEditProfile.skillButton}>
-          <Text style={styleEditProfile.skillText}>Cirurgia Oncológica</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
     <Image
       style={styleEditProfile.image}
       source={{ uri: 'https://images.unsplash.com/photo-1548698915-d33bc4a7ad17' }}
     />
+    <View>
+    <TouchableOpacity>
+        <Button
+          title="upload your file"
+          color="black"
+          onPress={pickDocument}
+        />
+    </TouchableOpacity>
+    </View>
   </View>
   </ScrollView>
 );

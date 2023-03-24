@@ -11,12 +11,14 @@ import { OpScreen } from './src/screens/EntradaOp/op';
 import { SenhaSreen } from './src/screens/Senha/recuperaSenha';
 import { CodeScreen} from './src/screens/PagCodigo/codigo';
 import { RegisterCarevigerScreen } from './src/screens/RegisterCareviger/RegisterCareviger.js'
+import { EditProfileScreen } from './src/screens/editProfile/editProfile.js'
+import { ChatScreen } from './src/screens/chat/chat.js'
 
 //TELAS TAB BOTTOM NAVIGATION
+import { ChatRoomScreen } from "./src/screens/chatroom/chatroom"
 import { HomeScreen } from "./src/screens/Home/home"
 import { SearchScreen } from "./src/screens/Search/search"
 import { PubScreen } from "./src/screens/publication/pub"
-import { ChatScreen } from "./src/screens/chat/chat"
 import { NotificationScreen } from "./src/screens/notificacao/notificacao"
 import { ProfileScreen } from "./src/screens/Profile/profile"
 
@@ -137,12 +139,12 @@ function Tabs(){
         }}
         
       />
-      <Tab.Screen name='Notification' component={NotificationScreen}
+      <Tab.Screen name='ChatRoomScreen' component={ChatRoomScreen}
         options={{
           tabBarIcon: ({focused}) => (
             <View style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
               <Image
-                source={require('./assets/notification.png')}
+                source={require('./assets/chat.png')}
                 resizeMode='contain'
                 style={{
                   width: 25,
@@ -154,7 +156,7 @@ function Tabs(){
               style={{color: focused ? '#663399' : '#748c94', fontSize:12 }}
               
               >
-              Notificações  
+              Chat
               </Text>
             </View>
           ),
@@ -228,9 +230,11 @@ export default function App() {
     <Stack.Screen 
       name="ProfileScreen" component={Tabs}  
     />
+    <Stack.Screen 
+      name="EditProfileScreen" component={EditProfileScreen}
+    />
     </Stack.Navigator>
     </NavigationContainer> 
   ); 
 
 }
-  

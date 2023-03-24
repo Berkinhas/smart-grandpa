@@ -1,45 +1,60 @@
 import { StyleSheet } from 'react-native';
 
 const styleHome = StyleSheet.create({
-    container:{
-      flex:1,
-      backgroundColor: '#D5CBF8',
-    },  
+   background: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
+  container: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  textContainer: {
+    alignItems: 'center',
+    paddingHorizontal: 20,
+  },
+  welcomeText: {
+    fontSize: 38,
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  iconContainer: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 50,
+    padding: 20,
+    marginBottom: 30,
+  },
+  healthIcon: {
+    width: 120,
+    height: 120,
+  },
+  messageText: {
+    fontSize: 24,
+    color: '#FFFFFF',
+    textAlign: 'center',
+    marginBottom: 40,
     
-    div: {
-      backgroundColor: '#FFF',
-      borderRadius: 10, 
-      marginTop: 370,
-      marginHorizontal: 12,
-      flex: 0.5
-    }, 
-
-    div2: {
-      backgroundColor: '#FFF',
-      borderRadius: 10, 
-      marginTop: 90,
-      marginBottom: -300,
-      marginHorizontal: 12,
-      flex: 0.2
-    },
-
-    title:{
-      fontSize: 20,
-      color: '#3F3847',
-      marginTop: 40,
-      marginBottom: 10,
-      textAlign:'center',
-      fontWeight: '20',
-      fontFamily:'FiraSans_500Medium',
-    },
-
-    map: {
-      alignItems: 'center',
-      marginLeft: 20,
-      marginTop: 10,
-      width: '90%',
-      height: '55%',
-    }
+  },
+  button: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '80%',
+    backgroundColor: '#FFFFFF',
+    marginTop: 20,
+    borderRadius: 30,
+    paddingVertical: 15,
+    paddingHorizontal: 10,
+    justifyContent: 'center',
+  },
+  arrowIcon: {
+    width: '80%',
+    color: '#FFF'
+  },
   
        })
   export default styleHome;

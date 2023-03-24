@@ -10,7 +10,7 @@ const styleNotificacao = StyleSheet.create({
     backgroundColor: '#9370DB',
     flexDirection: 'row',
     alignItems: 'center',
-    paddingTop: 50,
+    paddingTop: 60,
     paddingVertical: 16,
     paddingHorizontal: 16,
     borderBottomWidth: 9,

@@ -13,6 +13,7 @@ import { CodeScreen} from './src/screens/PagCodigo/codigo';
 import { RegisterCarevigerScreen } from './src/screens/RegisterCareviger/RegisterCareviger.js'
 import { EditProfileScreen } from './src/screens/editProfile/editProfile.js'
 import { ChatScreen } from './src/screens/chat/chat.js'
+import { RecuperarSenhaScreen } from './src/screens/recuperaSenha/recuperaSenha.js'
 
 //TELAS TAB BOTTOM NAVIGATION
 import { ChatRoomScreen } from "./src/screens/chatroom/chatroom"
@@ -93,7 +94,7 @@ function Tabs(){
           </View>
         ),
       }}/>
-      <Tab.Screen name='Search' component={SearchScreen}
+      <Tab.Screen name='SearchScreen' component={SearchScreen}
         options={{
           tabBarIcon: ({focused}) => (
             <View style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
@@ -162,7 +163,7 @@ function Tabs(){
           ),
         }}
       />
-      <Tab.Screen name='Profile' component={ProfileScreen}
+      <Tab.Screen name='ProfileScreen' component={ProfileScreen}
         options={{
           tabBarIcon: ({focused}) => (
             <View style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
@@ -225,16 +226,22 @@ export default function App() {
       name="CodeScreen" component={CodeScreen}  
     />
     <Stack.Screen 
+      name="RecuperarSenhaScreen" component={RecuperarSenhaScreen}
+    />
+    <Stack.Screen 
       name="LoginScreen" component={LoginScreen}  
     />
     <Stack.Screen 
-      name="ProfileScreen" component={Tabs}  
+      name="ProfileScreen" component={ProfileScreen}  
     />
     <Stack.Screen 
       name="EditProfileScreen" component={EditProfileScreen}
     />
     <Stack.Screen 
       name="NotificationScreen" component={NotificationScreen}
+    />
+    <Stack.Screen 
+      name="SearchScreen" component={SearchScreen}
     />
     </Stack.Navigator>
     </NavigationContainer> 

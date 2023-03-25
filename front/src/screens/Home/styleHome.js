@@ -1,5 +1,27 @@
 import { StyleSheet } from 'react-native';
 
+import { Animated } from 'react-native';
+
+const pulseAnimation = new Animated.Value(1);
+
+Animated.loop(
+  Animated.sequence([
+    Animated.timing(pulseAnimation, {
+      toValue: 1.2,
+      duration: 500,
+      useNativeDriver: true,
+    }),
+    Animated.timing(pulseAnimation, {
+      toValue: 1,
+      duration: 500,
+      useNativeDriver: true,
+    }),
+  ])
+).start();
+
+
+
+
 const styleHome = StyleSheet.create({
    background: {
     flex: 1,
@@ -8,7 +30,7 @@ const styleHome = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -24,10 +46,18 @@ const styleHome = StyleSheet.create({
     textAlign: 'center',
   },
   iconContainer: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: 50,
-    padding: 20,
-    marginBottom: 30,
+    width: 100,
+    height: 100,
+    borderRadius: 50, // metade da largura e altura do contêiner
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  iconGradient: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 50, // metade da largura e altura do contêiner
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   healthIcon: {
     width: 120,
@@ -41,19 +71,33 @@ const styleHome = StyleSheet.create({
     
   },
   button: {
+    backgroundColor: '#FFF',
+    borderRadius: 25,
+    top: 20,
+    paddingVertical: 15,
+    paddingHorizontal: 30,
     flexDirection: 'row',
     alignItems: 'center',
-    width: '80%',
-    backgroundColor: '#FFFFFF',
-    marginTop: 20,
-    borderRadius: 30,
-    paddingVertical: 15,
-    paddingHorizontal: 10,
     justifyContent: 'center',
+    transform: [{ scale: pulseAnimation }],
+  },
+  buttonContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonIcon: {
+    marginRight: 10,
+  },
+  buttonText: {
+    color: '#FFFFFF',
+    fontSize: 20,
+    fontWeight: 'bold',
   },
   arrowIcon: {
     width: '80%',
-    color: '#FFF'
+    color: '#FFF',
+    top: -10,
   },
   modalContainer: {
     flex: 1,
@@ -112,31 +156,37 @@ backButtonText: {
   fontSize: 16,
   marginLeft: 8,
 },
-settingsButton: {
+buttonText: {
+ colorText: "black",
+ alignItems: "center",
+ left: 10,
+
+},
+  buttonContainer: {
     position: 'absolute',
-    top: 70,
+    top: 90,
     right: 20,
     zIndex: 999,
-    margin: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: 30,
+    backgroundColor: "#FFF",
+  },
+  settingsButton: {
+    backgroundColor: 'transparent',
+    borderRadius: 50,
+    padding: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    
+  },
+  buttonNotification: {
     backgroundColor: 'transparent',
     borderRadius: 50,
     padding: 10,
     alignItems: 'center',
     justifyContent: 'center',
   },
- buttonNotification: {
-    position: 'absolute',
-    top: 70,
-    right: 55,
-    zIndex: 999,
-    margin: 20,
-    backgroundColor: 'transparent',
-    borderRadius: 50,
-    padding: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
- },
-
 
   
        })

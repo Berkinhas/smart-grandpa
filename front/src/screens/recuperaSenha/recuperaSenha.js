@@ -4,7 +4,7 @@ import { FiraSans_500Medium, useFonts } from '@expo-google-fonts/fira-sans';
 import { View, Text, TextInput, TouchableOpacity, Image} from 'react-native'
 
 
-export function CodeNewPasword({ navigation }){
+export function RecuperarSenhaScreen({ navigation }){
 
     const [senha, setPassword] = React.useState('');
     const [senhaConfirm, setPasswordConfirm] = React.useState('');

@@ -3,19 +3,39 @@ import { StyleSheet } from 'react-native';
 const styleSearch = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)'
   },
   header: {
-    height: 64,
     backgroundColor: '#9370DB',
-    marginTop: 40,
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: 50,
+    paddingVertical: 16,
+    paddingHorizontal: 16,
+  },
+  background: {
+    backgroundColor: 'rgba(0, 0, 0, 0.3)'
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#FFFFFF',
+    color: '#FFF',
+    left: 130,
+    textAlign: 'center',
+  },
+   totalJobs: {
+    fontSize: 20,
+    top: 10,
+    fontWeight: 'bold',
+    color: '#555555',
+    textAlign: 'center',
+    marginTop: 10,
+    backgroundColor: '#FFF',
+    width: 200,
+    marginLeft: 110,
+    padding: 10,
+    borderRadius: 10,
+    marginBottom: 10,
   },
   noJobsContainer: {
     flex: 1,
@@ -28,6 +48,7 @@ const styleSearch = StyleSheet.create({
   },
   jobsContainer: {
     paddingBottom: 20,
+    top: 20,
   },
   jobCard: {
     backgroundColor: '#FFFFFF',

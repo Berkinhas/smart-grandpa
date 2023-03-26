@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import stylePub from './stylePub.js';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export function PubScreen() {
 
@@ -38,6 +39,12 @@ export function PubScreen() {
 
   return (
     <View style={stylePub.container}>
+    <LinearGradient
+        start={{ x: 0, y: 1 }}
+  	end={{ x: 1, y: 0 }}
+  	colors={['#DEB0DF', '#D5CBF8']}
+	style={[stylePub.background, { flex: 1,}]}
+      >
   <View style={stylePub.formContainer}>
     <Text style={stylePub.titulo}>Criar nova oportunidade</Text>
     <TextInput
@@ -80,6 +87,7 @@ export function PubScreen() {
       <Text style={stylePub.buttonText}>Enviar</Text>
     </TouchableOpacity>
   </View>
+  </LinearGradient>
 </View>
 );
 }

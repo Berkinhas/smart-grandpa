@@ -3,7 +3,7 @@ import { View, Text, styleSearchheet, ScrollView, Image, TouchableOpacity } from
 import styleSearch from "./styleSearch.js"
 import { LinearGradient } from 'expo-linear-gradient';
 
-export function SearchScreen() {
+export function SearchScreen({navigation}) {
   const jobs = [
     {
       company: 'Google',
@@ -25,17 +25,21 @@ export function SearchScreen() {
     },
   ];
 
+  const totalJobs = jobs.length;
+  
   return (
     <View style={styleSearch.container}>
     <LinearGradient
         start={{ x: 0, y: 1 }}
   	end={{ x: 1, y: 0 }}
-  	colors={['#DEB0DF', '#A16BFE']}
-	style={[styleSearch.background, { flex: 1 }]}
+  	colors={['#DEB0DF', '#D5CBF8']}
+	style={[styleSearch.background, { flex: 1,}]}
       >
+      
       <View style={styleSearch.header}>
-        <Text style={styleSearch.title}>Job Postings</Text>
+        <Text style={styleSearch.title}>Oportunidades</Text>
       </View>
+      	<Text style={styleSearch.totalJobs}>{totalJobs} vagas disponíveis</Text>
       {jobs.length === 0 ? (
         <View style={styleSearch.noJobsContainer}>
           <Text style={styleSearch.noJobsText}>No job postings available.</Text>
@@ -43,7 +47,7 @@ export function SearchScreen() {
       ) : (
         <ScrollView contentContainerStyle={styleSearch.jobsContainer}>
           {jobs.map((job, index) => (
-            <TouchableOpacity style={styleSearch.jobCard} key={index}>
+            <TouchableOpacity style={styleSearch.jobCard} key={index} onPress={() => {navigation.navigate('JobScreen')}}>
               <View style={styleSearch.logoContainer}>
                 <Image source={{ uri: job.logoUrl }} style={styleSearch.logo} />
               </View>

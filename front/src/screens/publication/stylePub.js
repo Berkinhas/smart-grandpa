@@ -11,6 +11,7 @@ const stylePub = StyleSheet.create({
     margin: 10,
     padding: 20,
     borderRadius: 10,
+    top: 140,
   },
   titulo: {
     fontSize: 24,

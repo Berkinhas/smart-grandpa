@@ -14,6 +14,7 @@ import { RegisterCarevigerScreen } from './src/screens/RegisterCareviger/Registe
 import { EditProfileScreen } from './src/screens/editProfile/editProfile.js'
 import { ChatScreen } from './src/screens/chat/chat.js'
 import { RecuperarSenhaScreen } from './src/screens/recuperaSenha/recuperaSenha.js'
+import { JobScreen } from './src/screens/jobDetails/jobDetails.js'
 
 //TELAS TAB BOTTOM NAVIGATION
 import { ChatRoomScreen } from "./src/screens/chatroom/chatroom"
@@ -242,6 +243,9 @@ export default function App() {
     />
     <Stack.Screen 
       name="SearchScreen" component={SearchScreen}
+    />
+    <Stack.Screen 
+      name="JobScreen" component={JobScreen}
     />
     </Stack.Navigator>
     </NavigationContainer> 

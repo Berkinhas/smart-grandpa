@@ -62,7 +62,7 @@ return (
   <ScrollView>
     
     <TouchableOpacity style={styleEditProfile.editButton} onPress={() =>        {          
-            navigation.navigate('ProfileScreen')
+	navigation.goBack()
           
         }}>
 	  <MaterialIcons name="arrow-back" size={24} color="#FFF" style={styleEditProfile.editIcon} />

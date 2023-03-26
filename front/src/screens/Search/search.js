@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View, Text, styleSearchheet, ScrollView, Image, TouchableOpacity } from 'react-native';
 import styleSearch from "./styleSearch.js"
+import { LinearGradient } from 'expo-linear-gradient';
 
 export function SearchScreen() {
   const jobs = [
@@ -26,6 +27,12 @@ export function SearchScreen() {
 
   return (
     <View style={styleSearch.container}>
+    <LinearGradient
+        start={{ x: 0, y: 1 }}
+  	end={{ x: 1, y: 0 }}
+  	colors={['#DEB0DF', '#A16BFE']}
+	style={[styleSearch.background, { flex: 1 }]}
+      >
       <View style={styleSearch.header}>
         <Text style={styleSearch.title}>Job Postings</Text>
       </View>
@@ -49,6 +56,7 @@ export function SearchScreen() {
           ))}
         </ScrollView>
       )}
+      </LinearGradient>
     </View>
     )
 }

@@ -4,8 +4,9 @@ import * as Animatable from 'react-native-animatable';
 import { FiraSans_500Medium, useFonts } from '@expo-google-fonts/fira-sans';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Card, Title, Paragraph, Button } from 'react-native-paper';
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons, FontAwesome5 } from '@expo/vector-icons';
 import { Modal } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import styleHome from './styleHome.js' 
 
@@ -31,19 +32,21 @@ export function HomeScreen({ navigation }) {
   
   return(
     <ImageBackground
-      source={require('/home/matheus/Área de Trabalho/mobile/front/assets/peakpx.jpg')}
+      source={require('/home/matheus/Área de Trabalho/mobile/front/assets/background-purple.jpeg')}
       style={styleHome.background}
       resizeMode="cover"
     >
     
       <View style={styleHome.container}>
-      	 <TouchableOpacity style={styleHome.settingsButton} onPress={() => setModalVisible(true)}>
-  		<MaterialIcons name="settings" size={30} color="white" />
-	 </TouchableOpacity>
-	 <TouchableOpacity style={styleHome.buttonNotification} onPress={() => {          
-            navigation.navigate('NotificationScreen')    }}>
-  		<MaterialIcons name="notifications" size={30} color="white" />
-	 </TouchableOpacity>
+      	 <View style={styleHome.buttonContainer}>
+	    <TouchableOpacity style={styleHome.settingsButton} onPress={() => setModalVisible(true)}>
+	      <MaterialIcons name="settings" size={30} color="#9370DB" />
+	    </TouchableOpacity>
+	    <TouchableOpacity style={styleHome.buttonNotification} onPress={() => {navigation.navigate('NotificationScreen')}}>
+	      <MaterialIcons name="notifications" size={30} color="#9370DB" />
+	    </TouchableOpacity>
+      </View>
+
 <Modal animationType="fade" visible={modalVisible}>
   <View style={styleHome.modalContainer}>
     <TouchableOpacity onPress={() => setModalVisible(false)} style={styleHome.closeButton}>
@@ -76,16 +79,26 @@ export function HomeScreen({ navigation }) {
 
 
         <View style={styleHome.textContainer}>
-          <Text style={styleHome.welcomeText}>Bem-vindo (nome)!</Text>
+          <Text style={styleHome.welcomeText}>Bem-vindo, Matheus!</Text>
           <View style={styleHome.iconContainer}>
-           
+          <LinearGradient
+	  	start={{ x: 0, y: 1 }}
+	  	end={{ x: 1, y: 0 }}
+	  	colors={['#4B0082', '#8B008B', '#9370DB', '#D8BFD8']}
+	  	style={styleHome.iconGradient}	
+	  >
+             <FontAwesome5 name="hand-holding-heart" size={60} color="#DADADA" />
+             </LinearGradient>
           </View>
           <Text style={styleHome.messageText}>Venha conferir as novas vagas de hoje.</Text>
-          <MaterialIcons style={styleHome.arrowIcon} name="keyboard-arrow-down" size={24} color="#6200ee" />
-          <Button style={styleHome.button} mode="contained" onPress={() => console.log('Pressed')} color="black">
-            Ver Vagas
-            
-          </Button>
+          <MaterialIcons style={styleHome.arrowIcon} name="arrow-downward" size={24} color="#6200ee" />
+          <TouchableOpacity
+	  style={styleHome.button} onPress={() => {navigation.navigate('SearchScreen')}}>
+	  <View style={styleHome.buttonContent}>
+	    <Icon name="briefcase" size={30} color="#9370DB" style={styleHome.buttonIcon} />
+	    <Text style={styleHome.buttonText}>Ver vagas</Text>
+	  </View>
+	</TouchableOpacity>
         </View>
       </View>
     </ImageBackground>

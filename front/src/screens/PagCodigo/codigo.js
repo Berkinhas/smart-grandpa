@@ -91,7 +91,7 @@ return(
        </View>
       </View>
        <Text style={styleCode.textDescription}> Digite o código que foi enviado no seu e-mail.</Text>
-       <TouchableOpacity style={styleCode.btnSenha} onPress={() => navigation.navigate('LoginScreen')}>
+       <TouchableOpacity style={styleCode.btnSenha} onPress={() => navigation.navigate('RecuperarSenhaScreen')}>
          <Text style={{color:"#DAD0FB", fontSize:16, fontFamily:'FiraSans_500Medium',}}>Enviar código</Text>
        </TouchableOpacity> 
      </View>

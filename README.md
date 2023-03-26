@@ -48,12 +48,12 @@ O projeto Smart Grandpa se trata de um sistema mobile desenvolvido para melhorar
 - [X] Recuperar senha
 - [X] Código de recuperação
 - [X] Opção de escolha
+- [X] Home
+- [X] Serviços
+- [X] Perfil de usuário
+- [X] Publicação
 - [ ] Avaliar perfil
 - [ ] Chat
-- [ ] Home
-- [ ] Serviços
-- [ ] Perfil de usuário
-- [ ] Localização
 
 #
 

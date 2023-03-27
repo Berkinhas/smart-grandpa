@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styleSupport from './styleSupport';
 import { FiraSans_500Medium, useFonts } from '@expo-google-fonts/fira-sans';
 import { View, Text, TextInput, TouchableOpacity, Image, Button} from 'react-native'
-import * as MailComposer from 'react-native-mail-composer';
+
 
 export function SupportScreen({ navigation }){
   const [email, setEmail] = useState('');

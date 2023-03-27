@@ -60,7 +60,7 @@ export function HomeScreen({ navigation }) {
           <MaterialIcons name="logout" size={24} color="black" />
           <Text style={styleHome.optionText}>Log out</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styleHome.option}>
+        <TouchableOpacity style={styleHome.option} onPress={() => {navigation.navigate('SupportScreen')}}>
           <MaterialIcons name="help" size={24} color="black" />
           <Text style={styleHome.optionText}>Assistência</Text>
         </TouchableOpacity>

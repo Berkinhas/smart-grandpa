@@ -44,6 +44,7 @@
     "react-native-screens": "~3.18.0",
     "react-native-snap-carousel": "^3.9.1",
     "react-native-snap-carousel-v4": "^1.0.1",
+    "react-native-unimodules": "^0.14.10",
     "react-native-vector-icons": "^9.2.0",
     "swagger-ui-express": "^4.6.1"
   },

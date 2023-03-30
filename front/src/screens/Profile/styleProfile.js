@@ -18,35 +18,50 @@ const styleProfile = StyleSheet.create({
   marginTop: 16,
   flexDirection: 'row',
   alignItems: 'center',
+  top: 140,
+  right: 30,
 },
 
 
   
   
   header: {
-    alignItems: 'center',
-    paddingTop: 50,
+    borderBottomLeftRadius: 300,
+    borderBottomRightRadius: 300,
+    paddingHorizontal: 20,
+    width: 500,
+    alignSelf: 'center',
+    top: -80,
+    paddingVertical: 30,
   },
   profileImage: {
     width: 150,
     height: 150,
     borderRadius: 75,
     marginBottom: 10,
+    top: 200,
+    alignSelf: 'center',
   },
   name: {
     fontSize: 24,
     fontWeight: 'bold',
     color: '#333',
+    top: 200,
+    left: 140,
   },
-  title: {
+  idade: {
     fontSize: 18,
     color: '#555',
     marginBottom: 10,
+    top: 230,
+    left: 220,
   },
   location: {
     fontSize: 16,
     color: '#555',
     marginBottom: 20,
+    top: 170,
+    left: 170,
   },
   contact: {
     marginTop: 20,

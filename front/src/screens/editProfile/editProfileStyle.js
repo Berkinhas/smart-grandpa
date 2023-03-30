@@ -28,6 +28,7 @@ const styleEditProfile = StyleSheet.create({
   marginTop: 16,
   flexDirection: 'row',
   alignItems: 'center',
+  top: 20,
 },
 
 

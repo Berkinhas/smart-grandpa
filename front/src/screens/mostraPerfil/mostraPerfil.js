@@ -2,10 +2,10 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
-import styleJob from './styleJobDetails.js'
+import styleJob from './styleMostraPerfil.js'
 
 
-export function JobScreen({navigation}) {
+export function MostrarPerfilScreen({navigation}) {
 
  const job = {
     title: 'Desenvolvedor Front-end',

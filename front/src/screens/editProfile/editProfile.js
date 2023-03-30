@@ -75,7 +75,7 @@ return (
       {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
     </View>
     </View>
-      <Text style={styleEditProfile.name}>Dr. João da Silva</Text>
+      <Text style={styleEditProfile.name}>Jao</Text>
       <Text style={styleEditProfile.title}>Médico Cirurgião</Text>
       <Text style={styleEditProfile.location}>São Paulo, Brasil</Text>
     </View>

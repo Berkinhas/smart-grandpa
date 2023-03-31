@@ -12,7 +12,7 @@ export function ProfileScreen({ navigation }) {
       	<LinearGradient
 	  	start={{ x: 0, y: 1 }}
 	  	end={{ x: 1, y: 0 }}
-		colors={['#9c27b0', '#ba68c8', '#ce93d8', '#e1bee7']}
+          	colors={['#9c27b0', '#ba68c8', '#ce93d8', '#e1bee7']}
 	  	style={styleProfile.header}
 	  >
 

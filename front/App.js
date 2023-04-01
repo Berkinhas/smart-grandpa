@@ -15,7 +15,7 @@ import { EditProfileScreen } from './src/screens/editProfile/editProfile.js'
 import { ChatScreen } from './src/screens/chat/chat.js'
 import { RecuperarSenhaScreen } from './src/screens/recuperaSenha/recuperaSenha.js'
 import { JobScreen } from './src/screens/jobDetails/jobDetails.js'
-
+import { SupportScreen } from './src/screens/support/support.js'
 
 //TELAS TAB BOTTOM NAVIGATION
 import { ChatRoomScreen } from "./src/screens/chatroom/chatroom"
@@ -247,6 +247,9 @@ export default function App() {
     />
     <Stack.Screen 
       name="JobScreen" component={JobScreen}
+    />
+    <Stack.Screen 
+      name="SupportScreen" component={SupportScreen}
     />
     </Stack.Navigator>
     </NavigationContainer> 

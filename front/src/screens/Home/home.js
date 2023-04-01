@@ -7,13 +7,23 @@ import { Card, Title, Paragraph, Button } from 'react-native-paper';
 import { MaterialIcons, FontAwesome5 } from '@expo/vector-icons';
 import { Modal } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-
+import TermsAndConditionsModal from '../termos/termos.js'
 import styleHome from './styleHome.js' 
 
 
 export function HomeScreen({ navigation }) {
 
   const [modalVisible, setModalVisible] = React.useState(false);
+  
+  const [showTermsAndConditions, setShowTermsAndConditions] = useState(false);
+
+  const handleShowTermsAndConditions = () => {
+    setShowTermsAndConditions(true);
+  };
+
+  const handleCloseTermsAndConditions = () => {
+    setShowTermsAndConditions(false);
+  };
 
        const [email, onChangeEmail] = React.useState('');
        const [senha, setPassword] = React.useState('');
@@ -64,10 +74,12 @@ export function HomeScreen({ navigation }) {
           <MaterialIcons name="help" size={24} color="black" />
           <Text style={styleHome.optionText}>Assistência</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styleHome.option}>
-          <MaterialIcons name="description" size={24} color="black" />
-          <Text style={styleHome.optionText}>Termos e condições</Text>
-        </TouchableOpacity>
+        <TouchableOpacity style={styleHome.option} onPress={handleShowTermsAndConditions}>
+        <MaterialIcons name="description" size={24} color="black" />
+        <Text style={styleHome.optionText}>Termos e condições</Text>
+      </TouchableOpacity>
+
+      <TermsAndConditionsModal visible={showTermsAndConditions} onClose={handleCloseTermsAndConditions} />
       </View>
       <TouchableOpacity onPress={() => setModalVisible(false)} style={styleHome.backButton}>
         <MaterialIcons name="keyboard-arrow-left" size={24} color="black" />

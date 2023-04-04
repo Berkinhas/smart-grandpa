@@ -7,31 +7,13 @@ const styleProfile = StyleSheet.create({
     paddingHorizontal: 20,
     
   },
-  
-  editButton: {
-  backgroundColor: '#8B5FBF',
-  borderRadius: 20,
-  paddingHorizontal: 10,
-  paddingVertical: 8,
-  alignSelf: 'flex-end',
-  marginRight: 16,
-  marginTop: 16,
-  flexDirection: 'row',
-  alignItems: 'center',
-  top: 140,
-  right: 30,
-},
-
-
-  
-  
   header: {
     borderBottomLeftRadius: 300,
     borderBottomRightRadius: 300,
     paddingHorizontal: 20,
     width: 500,
     alignSelf: 'center',
-    top: -80,
+    top: -75,
     paddingVertical: 30,
   },
   profileImage: {
@@ -63,60 +45,34 @@ const styleProfile = StyleSheet.create({
     top: 170,
     left: 170,
   },
-  contact: {
-    marginTop: 20,
+  documentContainer: {
+    top: 30,
+    padding: 20,
+    backgroundColor: '#FFF',
+    marginBottom: 20,
   },
-  contactTitle: {
-    fontSize: 18,
+
+  documentText: {
+    fontSize: 20,
     fontWeight: 'bold',
-    color: '#333',
     marginBottom: 10,
   },
-  contactInfo: {
+
+  documentName: {
     fontSize: 16,
-    color: '#555',
     marginBottom: 10,
   },
-  bio: {
-    marginTop: 20,
+
+  updateButton: {
+    backgroundColor: '#9c27b0',
+    borderRadius: 10,
+    padding: 10,
   },
-  bioTitle: {
-    fontSize: 18,
+
+  updateText: {
+    color: '#FFF',
     fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 10,
-  },
-  bioText: {
-    fontSize: 16,
-    color: '#555',
-  },
-  skills: {
-    marginTop: 20,
-  },
-  skillsTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 10,
-  },
-  skillsList: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  skillButton: {
-    paddingHorizontal: 15,
-    paddingVertical: 8,
-    backgroundColor: '#f0f0f0',
-    borderRadius: 20,
-    margin: 5,
-  },
-  skillText: {
-    fontSize: 16,
-    color: '#555',
-  },
-  skillButtonSelected: {
-    backgroundColor: '#fd7e14',
-    color: '#fff',
+    textAlign: 'center',
   },
   image: {
     marginTop: 20,

@@ -9,34 +9,83 @@ import * as Animatable from 'react-native-animatable';
 import api from '/home/matheus/Área de Trabalho/mobile/front/src/api/index.js'
 
 
-async function loginUser(email, senha) {
-   try {
-     const response = await api.post('/login', {
-       email: email,
-       senha: senha
-     }, {
-       headers: {
-         'Content-Type': 'application/json'
-       }
-     });
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useIsFocused } from '@react-navigation/native';
 
-     return response.data; // retorna os dados do usuário no caso de sucesso
-   } catch (error) {
-     console.error(error.response.data);
-   }
- }
+//ADM
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MjczOGU4NDczOTcyMTA5NGI3Y2VlNyIsImlhdCI6MTY4MDM1MTkwMCwiZXhwIjoxNjgwNDM4MzAwfQ.Imfc24IuKacBPF_zUeUPdDmamenFN-3_0ufeiuddfcE
 
+//user
+//
 
 export function LoginScreen({ navigation }){
 
-  const [email, onChangeEmail] = React.useState('');
-  const [senha, setPassword] = React.useState('');
-  const [hidePass, setHidePass] = React.useState(true);
+
+  const [userToken, setUserToken] = useState('');
+  const [email, onChangeEmail] = useState('');
+  const [senha, setPassword] = useState('');
+  const [hidePass, setHidePass] = useState(true);
   const [fonteLoaded] = useFonts({
     FiraSans_500Medium,
-
   });
+
+  function setToken(token) {
+    // store the token in localStorage, AsyncStorage or any other storage mechanism of your choice
+    AsyncStorage.setItem('userToken', token);
+  }
+
+  async function loginUser(email, senha) {
+    try {
+      const response = await api.post('/login', {
+        email: email,
+        senha: senha
+      });
   
+      // Salva o token de autenticação do usuário no AsyncStorage
+      const token = response.data.token
+      setToken(token);
+      console.log('Token do usuário armazenado: ', token);
+  
+      // Obtém as informações do perfil do usuário
+      const perfilResponse = await api.get('/perfil', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+  
+      const idUsuario = perfilResponse.data._id;
+      const isCuidador = perfilResponse.data.cuidador;
+      await AsyncStorage.setItem('userPerfil', JSON.stringify(perfilResponse.data));
+      if (isCuidador !== undefined) {
+        AsyncStorage.setItem('isCuidador', JSON.stringify(isCuidador));
+      }
+
+      console.log(perfilResponse)
+      console.log(isCuidador)
+      return idUsuario;
+    } catch (error) {
+      console.error(error.message);
+      throw new Error('Não foi possível fazer login. Verifique suas credenciais e tente novamente.');
+    }
+  }
+
+  useEffect(() => {
+    // Recupera o token do usuário armazenado no AsyncStorage
+    const getUserToken = async () => {
+    try {
+    const token = await AsyncStorage.getItem('userToken');
+    setUserToken(token);
+    console.log('Token do usuário armazenado: ', token);
+    } catch (error) {
+    console.error(error.message);
+    }
+    };
+    getUserToken();
+    }, []);
+  
+
+    
+
   if(!fonteLoaded){
     return null;
   }
@@ -77,13 +126,16 @@ export function LoginScreen({ navigation }){
           testID='btn-enter'
           style={styleLogin.btnEnter}
           onPress={async () => {
-            const user = await loginUser(email, senha);
-            if (!user) {
-              Alert.alert('Usuário não encontrado');
-            } else {
-              navigation.navigate('HomeScreen')
+            try {
+              const idUsuario = await loginUser(email, senha);
+              await AsyncStorage.setItem('userToken', userToken);
+              setUserToken(userToken);
+              navigation.navigate('HomeScreen');
+            } catch (error) {
+              Alert.alert(error.message);
             }
-          }}>
+          }}
+        >
           <Text style={{color:"#DAD0FB", fontSize:16, fontFamily:'FiraSans_500Medium',}}>Entrar</Text>
           </TouchableOpacity>
 

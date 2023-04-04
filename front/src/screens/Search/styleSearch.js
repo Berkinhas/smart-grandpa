@@ -46,6 +46,27 @@ const styleSearch = StyleSheet.create({
     fontSize: 20,
     color: '#333333',
   },
+    filtro: {
+    backgroundColor: '#fff',
+    alignSelf: 'center',
+    top: 10,
+    width: 245,
+    right: 5,
+    borderRadius: 8,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    fontSize: 16,
+    color: '#000',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
+
+    elevation: 2,
+  },
   jobsContainer: {
     paddingBottom: 20,
     top: 20,
@@ -70,12 +91,14 @@ const styleSearch = StyleSheet.create({
     width: 64,
     height: 64,
     marginRight: 16,
+
   },
   logo: {
     flex: 1,
     width: null,
     height: null,
     resizeMode: 'contain',
+    borderRadius: 50,
 
 	},
 	jobDetailsContainer: {

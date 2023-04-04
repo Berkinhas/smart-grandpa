@@ -13,6 +13,27 @@ import styleHome from './styleHome.js'
 
 export function HomeScreen({ navigation }) {
 
+
+	  const [nome, setNome] = useState('');
+
+  useEffect(() => {
+    async function loadNome() {
+      try {
+        const response = await api.get('/login/', {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+
+        setNome(response.data.nome);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    loadNome();
+  }, []);
+
   const [modalVisible, setModalVisible] = React.useState(false);
   
   const [showTermsAndConditions, setShowTermsAndConditions] = useState(false);
@@ -64,7 +85,7 @@ export function HomeScreen({ navigation }) {
     </TouchableOpacity>
     <View style={styleHome.modalContent}>
       <Text style={styleHome.modalTitle}>Configurações</Text>
-      <Text style={styleHome.modalDescription}>O que deseja fazer (nome)?</Text>
+      <Text style={styleHome.modalDescription}>O que deseja fazer {nome}?</Text>
       <View style={styleHome.optionsContainer}>
         <TouchableOpacity style={styleHome.option}>
           <MaterialIcons name="logout" size={24} color="black" />
@@ -91,7 +112,7 @@ export function HomeScreen({ navigation }) {
 
 
         <View style={styleHome.textContainer}>
-          <Text style={styleHome.welcomeText}>Bem-vindo, Matheus!</Text>
+          <Text style={styleHome.welcomeText}>Bem-vindo, {nome}!</Text>
           <View style={styleHome.iconContainer}>
           <LinearGradient
 	  	start={{ x: 0, y: 1 }}

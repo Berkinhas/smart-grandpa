@@ -6,7 +6,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 export function ProfileScreen({ navigation }) {
     return (
-    <ScrollView>
+
      <View style={styleProfile.container}>
       <View style={styleProfile.header}>
       	<LinearGradient
@@ -17,12 +17,7 @@ export function ProfileScreen({ navigation }) {
 	  >
 
           
-      	<TouchableOpacity style={styleProfile.editButton} onPress={() =>        {          
-            navigation.navigate('EditProfileScreen')
-          
-        }}>
-	  <MaterialIcons name="edit" size={24} color="#FFF" style={styleProfile.editIcon} />
-	</TouchableOpacity>
+      	
         <Image
           style={styleProfile.profileImage}
           source={{ uri: 'https://images.unsplash.com/photo-1519681393784-d120267933ba' }}
@@ -33,13 +28,16 @@ export function ProfileScreen({ navigation }) {
       </LinearGradient>
       </View>
       
+            //<View style={styleProfile.documentContainer}>
+        //<Text style={styleProfile.documentText}>Documento:</Text>
+        //<Text style={styleProfile.documentName}>Currículo.pdf</Text>
+        //<TouchableOpacity style={styleProfile.updateButton}>
+          //<Text style={styleProfile.updateText}>Deseja atualizar seu currículo?</Text>
+        //</TouchableOpacity>
+      //</View>
       
-      
-      <Image
-        style={styleProfile.image}
-        source={{ uri: 'https://images.unsplash.com/photo-1548698915-d33bc4a7ad17' }}
-      />
+     
     </View>
-    </ScrollView>
+  
   );
 }

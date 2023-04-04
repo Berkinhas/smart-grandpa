@@ -3,7 +3,46 @@ import { View, TextInput, Text, Button, StyleSheet, TouchableOpacity } from 'rea
 import stylePub from './stylePub.js';
 import { LinearGradient } from 'expo-linear-gradient';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
+
+
+
 export function PubScreen() {
+
+  
+  const criarPost = async (titulo, local, horario, descricao, salario) => {
+    try {
+      // recupere o token do AsyncStorage
+      const token = await AsyncStorage.getItem('userToken');
+      console.log(token)
+      // faça a chamada à API de criação de postagem, passando o token como header
+      const response = await api.post('/post/criar', {
+        titulo: titulo,
+        local: local,
+        horario: horario,
+        descricao: descricao,
+        salario: salario 
+      }, 
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+        
+      });
+  
+      console.log(response.data);
+    } catch (error) {
+      console.error(error.response.data);
+    }
+    console.log('Título da Vaga:', titulo);
+    console.log('Local da vaga:', local)
+    console.log('Horário da vaga:', horario);
+    console.log('Descrição da vaga;', descricao)
+    console.log('Local:', local);
+  }
 
   const [titulo, setTitulo] = useState('');
   const [descricao, setDescricao] = useState('');
@@ -29,12 +68,6 @@ export function PubScreen() {
   
   const handleSalarioChange = (text) => {
     setSalario(text);
-  }
-
-  const handleSubmit = () => {
-    console.log('Título da Vaga:', titulo);
-    console.log('Descrição da Vaga:', descricao);
-    console.log('Local:', local);
   }
 
   return (
@@ -83,7 +116,7 @@ export function PubScreen() {
       value={salario}
       onChangeText={setSalario}
     />
-    <TouchableOpacity style={stylePub.button} onPress={handleSubmit}>
+    <TouchableOpacity style={stylePub.button} onPress={() => criarPost(titulo, local, horario, descricao, salario)}>
       <Text style={stylePub.buttonText}>Enviar</Text>
     </TouchableOpacity>
   </View>

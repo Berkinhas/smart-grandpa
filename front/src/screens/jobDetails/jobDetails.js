@@ -8,14 +8,14 @@ import styleJob from './styleJobDetails.js'
 export function JobScreen({navigation}) {
 
  const job = {
-    title: 'Desenvolvedor Front-end',
-    location: 'Belo Horizonte',
-    time: 'Horário Comercial',
-    description: 'Desenvolvimento de interfaces de usuário utilizando React Native e demais ferramentas.Desenvolvimento de interfaces de usuário utilizando React Native e demais ferramentas.Desenvolvimento de interfaces de usuário utilizando React Native e demais ferramentas.Desenvolvimento de interfaces.',
+    title: 'Preciso de cuidador.',
+    location: 'Contagem, Rua Porteira, 423',
+    time: '09:00 até 16:00',
+    description: 'Olá, sou um idoso de 85 anos e estou procurando um cuidador para me ajudar no dia a dia. Infelizmente, não tenho mais a mesma independência de antes e preciso de ajuda com tarefas básicas, como preparar refeições, limpar a casa e tomar banho. Gostaria de encontrar alguém gentil e atencioso, que possa me acompanhar em minhas atividades e conversar comigo, pois muitas vezes me sinto sozinho. Sou uma pessoa tranquila e agradável e espero encontrar alguém que possa me ajudar a viver com mais conforto e qualidade de vida.',
     salary: 'R$ 5.000,00 a R$ 7.000,00',
     employer: {
-      name: 'Nome do Empregador',
-      picture: 'https://i.pravatar.cc/150'
+      name: 'José Alfredo',
+      picture: 'https://img.freepik.com/fotos-gratis/velho-sorridente-com-oculos_23-2148740051.jpg?size=626&ext=jpg'
     }
     }
 	
@@ -33,7 +33,7 @@ export function JobScreen({navigation}) {
         <View style={styleJob.detailsContainer}>
          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
  	<Image source={{ uri: job.employer.picture }} style={[styleJob.employerImage, { width: 80, height: 80, marginRight: 12 }]}/>
-	    <Text style={styleJob.jobTitle}>{job.title}</Text>
+ 	    <Text style={styleJob.jobTitle}>José Alfredo{"\n"}{job.title}</Text>
   	</View>
           <Text style={styleJob.placeholder}>Localização</Text>
           <Text style={styleJob.detailsText}>{job.location}</Text>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, View, TextInput, TouchableOpacity, ScrollView, ImageBackground } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { FiraSans_500Medium, useFonts } from '@expo-google-fonts/fira-sans';
@@ -9,30 +9,28 @@ import { Modal } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import TermsAndConditionsModal from '../termos/termos.js'
 import styleHome from './styleHome.js' 
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export function HomeScreen({ navigation }) {
 
 
 	  const [nome, setNome] = useState('');
+    const [userPerfil, setUserPerfil] = useState('');
 
-  useEffect(() => {
-    async function loadNome() {
-      try {
-        const response = await api.get('/login/', {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        });
-
-        setNome(response.data.nome);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    loadNome();
-  }, []);
+ useEffect(() => {
+   const getUserPerfil = async () => {
+     try {
+       const perfilString = await AsyncStorage.getItem('userPerfil');
+       const perfilJson = JSON.parse(perfilString);
+       setUserPerfil(perfilJson);
+       console.log('Informações do perfil do usuário recuperadas do AsyncStorage: ', perfilJson);
+     } catch (error) {
+       console.error(error.message);
+     }
+   };
+   getUserPerfil();
+ }, []);
 
   const [modalVisible, setModalVisible] = React.useState(false);
   
@@ -63,7 +61,7 @@ export function HomeScreen({ navigation }) {
   
   return(
     <ImageBackground
-      source={require('/home/matheus/Área de Trabalho/mobile/front/assets/background-purple.jpeg')}
+      source={require('/Users/lesle/OneDrive/Área de Trabalho/smart-grandpa-main/front/assets/background-purple.jpeg')}
       style={styleHome.background}
       resizeMode="cover"
     >
@@ -85,7 +83,7 @@ export function HomeScreen({ navigation }) {
     </TouchableOpacity>
     <View style={styleHome.modalContent}>
       <Text style={styleHome.modalTitle}>Configurações</Text>
-      <Text style={styleHome.modalDescription}>O que deseja fazer {nome}?</Text>
+      <Text style={styleHome.modalDescription}>O que deseja fazer {userPerfil && userPerfil.nome}?</Text>
       <View style={styleHome.optionsContainer}>
         <TouchableOpacity style={styleHome.option}>
           <MaterialIcons name="logout" size={24} color="black" />
@@ -112,7 +110,7 @@ export function HomeScreen({ navigation }) {
 
 
         <View style={styleHome.textContainer}>
-          <Text style={styleHome.welcomeText}>Bem-vindo, {nome}!</Text>
+          <Text style={styleHome.welcomeText}>Bem-vindo, {userPerfil && userPerfil.nome}!</Text>
           <View style={styleHome.iconContainer}>
           <LinearGradient
 	  	start={{ x: 0, y: 1 }}
@@ -137,3 +135,23 @@ export function HomeScreen({ navigation }) {
     </ImageBackground>
   );
 }
+
+
+// source={require('/Users/lesle/OneDrive/Área de Trabalho/smart-grandpa-main/front/assets/background-purple.jpeg')}
+
+// useEffect(() => {
+//   const getUserPerfil = async () => {
+//     try {
+//       const perfilString = await AsyncStorage.getItem('userPerfil');
+//       const perfilJson = JSON.parse(perfilString);
+//       setUserPerfil(perfilJson);
+//       console.log('Informações do perfil do usuário recuperadas do AsyncStorage: ', perfilJson);
+//     } catch (error) {
+//       console.error(error.message);
+//     }
+//   };
+//   getUserPerfil();
+// }, []);
+
+
+// {userPerfil && userPerfil.nome}

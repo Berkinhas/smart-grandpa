@@ -3,10 +3,10 @@ import styleRegister from './styleRegister';
 import { View, Text, TextInput, TouchableOpacity,Image} from 'react-native'
 import { Ionicons} from '@expo/vector-icons';
 import { FiraSans_500Medium, useFonts } from '@expo-google-fonts/fira-sans';
-import loginFacebook from '/home/matheus/Área de Trabalho/mobile/front/assets/facebook.png';
-import loginGoogle from '/home/matheus/Área de Trabalho/mobile/front/assets/google.png';
+import loginFacebook from '/Users/lesle/OneDrive/Área de Trabalho/smart-grandpa-main/front/assets/facebook.png';
+import loginGoogle from '/Users/lesle/OneDrive/Área de Trabalho/smart-grandpa-main/front/assets/google.png';
 import axios from 'axios';
-import api from '/home/matheus/Área de Trabalho/mobile/front/src/api/index.js'
+import api from '/Users/lesle/OneDrive/Área de Trabalho/smart-grandpa-main/front/src/api/index'
 
 async function cadastrarUsuario(nome, sobrenome, email, senha) {
   try {
@@ -113,6 +113,14 @@ export function RegisterScreen({ navigation }){
           navegacao()
         }}> 
           <Text style={{color:"#DAD0FB", fontSize:16, fontFamily:'FiraSans_500Medium',}}>Cadastrar</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Text style={styleRegister.text}>
+              Ao cadastrar, você confirma que aceita os{' '}
+              <Text style={styleRegister.underline}>termos</Text> e{' '}
+              <Text style={styleRegister.underline}>condições</Text> de uso do aplicativo.
+            </Text>
           </TouchableOpacity>
 
           <View style={[styleRegister.textEntrada,styleRegister.texto]}>

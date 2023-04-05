@@ -1,9 +1,13 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import styleCode from './styleCode';
-import { View, Text , TextInput, StyleSheet,TouchableOpacity} from 'react-native'
+import { View, Text , TextInput, StyleSheet,TouchableOpacity, Alert} from 'react-native'
 import { FiraSans_500Medium, useFonts } from '@expo-google-fonts/fira-sans';
+import api from '/Users/lesle/OneDrive/Área de Trabalho/smart-grandpa-main/front/src/api/index.js'
+import { useNavigation } from '@react-navigation/native';
 
-export function CodeScreen({ navigation }){
+
+export function CodeScreen({ route }){
+  const navigation = useNavigation();
 
   // const verificationScreen = ({
   //   route: {
@@ -17,6 +21,7 @@ export function CodeScreen({ navigation }){
   const fourthInput = useRef();
   const [otp, setOtp] = useState({1: '', 2: '', 3: '', 4: ''})
 
+
   const [fonteLoaded] = useFonts({
 
         FiraSans_500Medium,
@@ -27,7 +32,18 @@ export function CodeScreen({ navigation }){
         return null;
       }
 
-
+      async function enviarToken(token) {
+        try {
+          const response = await api.post('/recuperar/mudar_senha', { token });
+          if (response.data.valid) {
+            navigation.navigate('RecuperarSenhaScreen');
+          } else {
+            Alert.alert('Erro', 'Código inválido. Verifique e tente novamente.');
+          }
+        } catch (error) {
+          Alert.alert('Erro', 'Ocorreu um erro ao validar o código. Verifique sua conexão e tente novamente.');
+        }
+      }
 
 
 return(
@@ -91,20 +107,9 @@ return(
        </View>
       </View>
        <Text style={styleCode.textDescription}> Digite o código que foi enviado no seu e-mail.</Text>
-       <TouchableOpacity style={styleCode.btnSenha} onPress={() => navigation.navigate('RecuperarSenhaScreen')}>
-         <Text style={{color:"#DAD0FB", fontSize:16, fontFamily:'FiraSans_500Medium',}}>Enviar código</Text>
-       </TouchableOpacity> 
+       <TouchableOpacity style={styleCode.btnSenha} onPress={() => enviarToken(token)}>
+          <Text style={{color:"#DAD0FB", fontSize:16, fontFamily:'FiraSans_500Medium',}}>Enviar código</Text>
+        </TouchableOpacity>
      </View>
-
-     
   </View>
-
-
-
-
-
-
-
-
-
 )}

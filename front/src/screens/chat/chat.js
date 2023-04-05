@@ -8,12 +8,12 @@ export function ChatScreen({ navigation }){
     setMessages([
       {
         _id: 1,
-        text: 'Bom dia! Vou ficar um tempo fora então vou suspender seus serviços, obrigado.',
+        text: 'Hello developer',
         createdAt: new Date(),
         user: {
           _id: 2,
           name: 'React Native',
-          avatar: 'https://img.freepik.com/fotos-gratis/velho-sorridente-com-oculos_23-2148740051.jpg?size=626&ext=jpg',
+          avatar: 'https://placeimg.com/140/140/any',
         },
       },
     ])

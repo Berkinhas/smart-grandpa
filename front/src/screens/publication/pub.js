@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { View, TextInput, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import stylePub from './stylePub.js';
 import { LinearGradient } from 'expo-linear-gradient';
-
+import api from '/Users/lesle/OneDrive/Área de Trabalho/smart-grandpa-main/front/src/api/index'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import CurrencyInput from 'react-native-currency-input';
 
 
 
@@ -11,7 +12,30 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function PubScreen() {
 
-  
+  const formatHorario = (text) => {
+    const regex = /^(\d{2}):(\d{2}) até (\d{2}):(\d{2})$/
+    if (regex.test(text)) {
+      return text
+    }
+    const formattedText = text
+      .replace(/[^0-9:]/g, '')
+      .replace(/([0-9]{2})([0-9]{2})/, '$1:$2 até ')
+    if (formattedText.length > 13) {
+      return formattedText.slice(0, 13)
+    }
+    return formattedText
+  }
+
+  const formatSalario = (text) => {
+    const formattedText = text.replace('.', ',')
+    if (formattedText.startsWith('R$')) {
+      return formattedText
+    }
+    return `R$${formattedText}`
+  }
+
+
+
   const criarPost = async (titulo, local, horario, descricao, salario) => {
     try {
       // recupere o token do AsyncStorage
@@ -73,11 +97,11 @@ export function PubScreen() {
   return (
     <View style={stylePub.container}>
     <LinearGradient
-        start={{ x: 0, y: 1 }}
-  	end={{ x: 1, y: 0 }}
-  	colors={['#DEB0DF', '#D5CBF8']}
-	style={[stylePub.background, { flex: 1,}]}
-      >
+      start={{ x: 0, y: 1 }}
+      end={{ x: 1, y: 0 }}
+      colors={['#DEB0DF', '#D5CBF8']}
+      style={[stylePub.background, { flex: 1,}]}
+    >
   <View style={stylePub.formContainer}>
     <Text style={stylePub.titulo}>Criar nova oportunidade</Text>
     <TextInput
@@ -99,7 +123,7 @@ export function PubScreen() {
       placeholder="Horário"
       placeholderTextColor="#9B9B9B"
       value={horario}
-      onChangeText={setHorario}
+      onChangeText={(text) => setHorario(formatHorario(text))}
     />
     <TextInput
       style={stylePub.inputDescricao}
@@ -109,13 +133,16 @@ export function PubScreen() {
       onChangeText={setDescricao}
       multiline
     />
-    <TextInput
-      style={stylePub.input}
-      placeholder="Salário"
-      placeholderTextColor="#9B9B9B"
-      value={salario}
-      onChangeText={setSalario}
-    />
+    <CurrencyInput
+        style={stylePub.input}
+        placeholder="Salário"
+        value={salario}
+        onChangeValue={setSalario}
+        unit="R$"
+        delimiter="."
+        separator=","
+        precision={2}
+      />
     <TouchableOpacity style={stylePub.button} onPress={() => criarPost(titulo, local, horario, descricao, salario)}>
       <Text style={stylePub.buttonText}>Enviar</Text>
     </TouchableOpacity>

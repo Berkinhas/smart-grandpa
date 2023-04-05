@@ -1,9 +1,10 @@
-import * as React from 'react';
-import { View, Text, styleSearchheet, ScrollView, Image, TouchableOpacity, TextInput } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, ScrollView, Image, TouchableOpacity, TextInput, Button } from 'react-native';
 import styleSearch from "./styleSearch.js"
 import { LinearGradient } from 'expo-linear-gradient';
-
+import api from '/Users/lesle/OneDrive/Área de Trabalho/smart-grandpa-main/front/src/api/index'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export function SearchScreen({navigation}) {
 
@@ -20,7 +21,8 @@ export function SearchScreen({navigation}) {
           'Authorization': `Bearer ${token}`
         }
       });
-      setPerfilFotoUrl(response.data.url);
+      setPerfilFotoUrl(response.data.key);
+      console.log(response.data.key)
     } catch (error) {
       console.error(error.response.data);
     }
@@ -46,6 +48,23 @@ export function SearchScreen({navigation}) {
       .then(response => {
         console.log(response.data); // verificar os dados retornados
         setPosts(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    });
+  }
+
+  function fetchPostById(_id) {
+    AsyncStorage.getItem('userToken').then(token => {
+      api.get(`/post/${_id}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      .then(response => {
+        console.log(response.data); // verificar os dados retornados
+        navigation.navigate('JobScreen', { postId: response.data._id });
       })
       .catch(error => {
         console.log(error);
@@ -84,10 +103,12 @@ export function SearchScreen({navigation}) {
         ) : (
           <ScrollView contentContainerStyle={styleSearch.jobsContainer}>
             {posts.filter(post => !local || post.local.toLowerCase().includes(local.toLowerCase())).map((post, index) => (
-              <TouchableOpacity style={styleSearch.jobCard} key={index} onPress={() => {navigation.navigate('JobScreen')}}>
+              <TouchableOpacity style={styleSearch.jobCard} key={index} onPress={() => fetchPostById(post._id)}>
                 <View style={styleSearch.logoContainer}>
-                  {/* <Image source={{ uri: perfilFotoUrl }} style={styleSearch.logo} /> */}
-                </View> 
+                <View style={styleSearch.logoContainer}>
+                  <Image source={perfilFotoUrl ? { uri: perfilFotoUrl } : require('/Users/lesle/OneDrive/Área de Trabalho/smart-grandpa-main/front/assets/user_job.png')} style={perfilFotoUrl ? styleSearch.logo : styleSearch.logo} />
+                </View>
+                </View>
                  <View style={styleSearch.jobDetails}>
                   <Text style={styleSearch.jobTitle}>{post.titulo}</Text>
                   <Text style={styleSearch.jobCompany}>Local: {post.local}</Text>
@@ -102,4 +123,3 @@ export function SearchScreen({navigation}) {
     </View>
   )
 }
-

@@ -39,6 +39,12 @@ const styleJob = StyleSheet.create({
     borderRadius: 40,
     marginBottom: 30,
   },
+  jobName: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    left: -40
+  },
   jobTitle: {
     fontSize: 22,
     fontWeight: 'bold',

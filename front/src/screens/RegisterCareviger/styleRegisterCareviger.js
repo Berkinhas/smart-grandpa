@@ -5,6 +5,16 @@ const styleCarevigerRegister = StyleSheet.create({
       flex:1,
       backgroundColor: '#D5CBF8',
     },  
+
+    text: {
+      top: 10,
+      fontSize: 16,
+      alignSelf: 'center',
+    },
+    underline: {
+      textDecorationLine: 'underline',
+      color: '#8a2be2',
+    },
   
     title:{
       fontSize: 25,

@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import stylePassword from './stylePassword';
 import { FiraSans_500Medium, useFonts } from '@expo-google-fonts/fira-sans';
 import { View, Text, TextInput, TouchableOpacity, Image} from 'react-native'
+import api from '/Users/lesle/OneDrive/Área de Trabalho/smart-grandpa-main/front/src/api/index.js'
 
 
 export function RecuperarSenhaScreen({ navigation }){
+    
+
+
 
     const [senha, setPassword] = React.useState('');
     const [senhaConfirm, setPasswordConfirm] = React.useState('');
@@ -18,6 +22,19 @@ export function RecuperarSenhaScreen({ navigation }){
       return null;
     }
       
+    const trocarSenha = async () => {
+      try {
+        const response = await axios.post('/recuperar/mudar_senha', {
+          token: token,
+          senha: senha,
+        });
+  
+        console.log(response.data);
+        navigation.navigate('LoginScreen');
+      } catch (error) {
+        console.error(error);
+      }
+    };
     
     return(
         <View style={stylePassword.container}>
@@ -51,7 +68,7 @@ export function RecuperarSenhaScreen({ navigation }){
                     />  
                   </View>
 
-                    <TouchableOpacity style={stylePassword.btnSenha} onPress={() => navigation.navigate('LoginScreen')} >
+                    <TouchableOpacity style={stylePassword.btnSenha} onPress={trocarSenha} >
                       <Text style={{color:"#DAD0FB", fontSize:16, fontFamily:'FiraSans_500Medium',}}>Confirmar </Text>
                     </TouchableOpacity>
                   </View> 

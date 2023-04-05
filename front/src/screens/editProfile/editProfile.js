@@ -5,10 +5,9 @@ import { FiraSans_500Medium, useFonts } from '@expo-google-fonts/fira-sans';
 import styleEditProfile from './editProfileStyle';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import * as ImagePicker from 'expo-image-picker';
-import api from '/home/matheus/Área de Trabalho/mobile/front/src/api/index.js'
+import api from '/Users/lesle/OneDrive/Área de Trabalho/smart-grandpa-main/front/src/api/index'
 import { IconButton } from 'react-native-paper';
 import { LinearGradient } from 'expo-linear-gradient';
-import * as DocumentPicker from 'expo-document-picker';
 
 
 async function userFoto(image) {
@@ -37,7 +36,11 @@ export function EditProfileScreen({ navigation }) {
     
       
     
-
+const pickDocument = async () => {
+  let result = await DocumentPicker.getDocumentAsync({});
+  console.log(result.uri);
+  console.log(result);
+};
 
 const pickImage = async () => {
   // No permissions request is necessary for launching the image library
@@ -54,19 +57,6 @@ const pickImage = async () => {
     setImage(result.assets[0].uri);
   }
 };
-
-const [singleFile, setSingleFile] = useState('');
-
-  const pickDocument = async () => {
-    try {
-      const res = await DocumentPicker.pick({
-        type: [DocumentPicker.types.allFiles],
-      });
-      console.log(res);
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
 return (
 
@@ -131,14 +121,13 @@ return (
         </View>
       </View>
       <View>
-	<TouchableOpacity style={styleEditProfile.document}>
-	  <Button
-	    title="Enviar seu curriculo"
-	    color="#8B5FBF"
-	    onPress={pickDocument}
-	    
-	  />
-	</TouchableOpacity>
+        <TouchableOpacity style={styleEditProfile.document}>
+          <Button
+            title="Enviar seu curriculo"
+            color="#8B5FBF"
+            onPress={pickDocument}
+          />
+        </TouchableOpacity>
         
       </View>
     </View>

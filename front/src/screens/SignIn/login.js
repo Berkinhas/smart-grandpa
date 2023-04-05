@@ -1,14 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback  } from 'react';
 import styleLogin from './styleLogin';
-import { View, Text, TextInput, TouchableOpacity,Image} from 'react-native'
+import { View, Text, TextInput, TouchableOpacity,Image, Alert} from 'react-native'
 import { Ionicons} from '@expo/vector-icons';
 import { FiraSans_500Medium, useFonts } from '@expo-google-fonts/fira-sans';
-import loginFacebook from '/home/matheus/Área de Trabalho/mobile/front/assets/facebook.png';
-import loginGoogle from '/home/matheus/Área de Trabalho/mobile/front/assets/google.png';
+import loginFacebook from '/Users/lesle/OneDrive/Área de Trabalho/smart-grandpa-main/front/assets/facebook.png';
+import loginGoogle from '/Users/lesle/OneDrive/Área de Trabalho/smart-grandpa-main/front/assets/google.png';
 import * as Animatable from 'react-native-animatable';
-import api from '/home/matheus/Área de Trabalho/mobile/front/src/api/index.js'
-
-
+import api from '/Users/lesle/OneDrive/Área de Trabalho/smart-grandpa-main/front/src/api/index'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useIsFocused } from '@react-navigation/native';
 

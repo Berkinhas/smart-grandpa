@@ -56,4 +56,3 @@ const handleSendMail = async () => {
     </View>
   );
 }
-
